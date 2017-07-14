@@ -34,3 +34,24 @@ var answersDB = {
   sex2: 13
 }
 
+{
+   society: [0..10];
+   lonely: [0..10];
+
+   drink: [0..10];
+   hash: [0..10];
+
+   feel: [0..10];
+   relation: [0..10];
+
+   economy: [0..10];
+
+   community: [0..10];
+   contribute: [0..10];
+
+   smoking: [0..10];
+   suns: [0..10];
+
+   sex: [0..10];
+   deny: [0..10];
+}

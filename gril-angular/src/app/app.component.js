@@ -9,14 +9,31 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Gril App';
+        this.data = {
+            society: 7,
+            lonely: 3,
+            drink: 6,
+            hash: 2,
+            feel: 5,
+            relation: 10,
+            economy: 6,
+            community: 8,
+            contribute: 8,
+            smoke: 3,
+            snus: 5,
+            sex: 9,
+            deny: 7
+        };
+        this.count = 152;
     }
     return AppComponent;
 }());
 AppComponent = __decorate([
     core_1.Component({
         selector: 'gril-app',
-        template: "<h1>{{name}}</h1>",
+        templateUrl: './app.component.html',
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
+//Общий бал получается как среднее арифметическое?
 //# sourceMappingURL=app.component.js.map

@@ -1,5 +1,88 @@
+body {
+  display:flex;
+  justify-content: center;
+  color: #1d1d1d;
+  font-size: 16px;
+  padding: 10px 0;
+}
 h1 {
   color: #369;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+.flex-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header {
+ width: 50vw;
+}
+
+.board {
+
+}
+
+.board div {
+  padding: 20px;
+}
+
+.summary {
+
+}
+
+.section {
+  border: 1px solid #e7e7e7;
+  box-shadow: 0 0 10px #e7e7e7;
+  margin-bottom: 0;
+  margin: 5px 0;
+}
+.section:hover {
+  border: 1px solid #bbb;
+  
+  box-shadow: 0 0 10px #c7c7c7;
+}
+
+.questions {
+  width:80%;
+  padding: 20px;
+  border-right: 1px solid #e7e7e7;
+}
+
+.category {
+  font-size: 24px;
+  margin-bottom: 10px;  
+}
+
+.item {
+
+}
+
+.total {  
+  width: 20%;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;   
+}
+
+.db-status {
+  width:30%;
+  text-align: center;
+
+}
+.on {
+  background-color:#a0daa0;
+}
+
+.off {
+  background-color: #edaeae;
+}
+.db-control {
+
 }
