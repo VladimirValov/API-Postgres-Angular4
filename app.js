@@ -6,6 +6,8 @@ const bodyParser = require('body-parser');
 const PORT = process.env.VCAP_APP_PORT || 5000;
 
 const answersRoute = require('./routes/answers');
+const reportsRoute = require('./routes/reports');
+
 const app = express();
 
 app.use(logger('dev'));
@@ -14,7 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/answers', answersRoute);
-
+app.use('/reports', reportsRoute);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
