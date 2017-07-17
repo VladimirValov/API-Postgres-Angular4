@@ -9,23 +9,38 @@ var core_1 = require("@angular/core");
 var AppComponent = (function () {
     function AppComponent() {
         this.name = 'Gril App';
-        this.data = {
-            society: 7,
-            lonely: 3,
-            drink: 6,
-            hash: 2,
-            feel: 5,
-            relation: 10,
-            economy: 6,
-            community: 8,
-            contribute: 8,
-            smoke: 3,
-            snus: 5,
-            sex: 9,
-            deny: 7
-        };
         this.count = 152;
+        this.data = {
+            society: 2,
+            lonely: 2,
+            drink: 3,
+            hash: 3,
+            feel: 4,
+            relation: 4,
+            economy: 5,
+            community: 6,
+            contribute: 6,
+            smoke: 7,
+            snus: 7,
+            sex: 8,
+            deny: 8
+        };
+        this.summary = [];
     }
+    AppComponent.prototype.calcTotal = function (data) {
+        var arr = [];
+        arr[0] = (data.society + data.lonely) / 2;
+        arr[1] = (data.drink + data.hash) / 2;
+        arr[2] = (data.feel + data.relation) / 2;
+        arr[3] = data.economy;
+        arr[4] = (data.community + data.contribute) / 2;
+        arr[5] = (data.smoke + data.snus) / 2;
+        arr[6] = (data.sex + data.deny) / 2;
+        return arr;
+    };
+    AppComponent.prototype.ngOnInit = function () {
+        this.summary = this.calcTotal(this.data);
+    };
     return AppComponent;
 }());
 AppComponent = __decorate([
@@ -35,5 +50,4 @@ AppComponent = __decorate([
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
-//Общий бал получается как среднее арифметическое?
 //# sourceMappingURL=app.component.js.map

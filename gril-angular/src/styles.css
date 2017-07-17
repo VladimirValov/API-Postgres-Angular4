@@ -22,11 +22,14 @@ h1 {
 }
 
 .header {
- width: 50vw;
+  width: 60vw;
 }
-
+.chart {
+  width: 60%;
+  min-width:300px
+}
 .board {
-
+  width: 40%
 }
 
 .board div {

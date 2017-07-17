@@ -1,9 +1,7 @@
+<!--<radar-chart [dataChart]="totalData" ></radar-chart>-->
 
 <div class='header flex-row ' >
-    <div class='chart'><img src="./img/radar_chart.png">
-
-    <radar-chart></radar-chart>
-    </div>
+    <div class='chart'><radar-chart [dataChart]="summary" ></radar-chart></div>
     <div class='board flex-column'>
         <h1>{{name}}</h1>
         <div>￼<a href ="">Log out</a></div>
@@ -25,7 +23,7 @@
                 <div class="state">{{data.lonely}}</div>
             </div>
         </div>
-        <div class="total">{{( data.society + data.lonely)/2 }} / 10</div>
+        <div class="total">{{ summary[0] }} / 10</div>
     </div>
 
      <div class="section flex-row">        
@@ -40,7 +38,7 @@
                 <div class="state">{{data.hash}}</div>
             </div>
         </div>
-        <div class="total"> {{ (data.drink + data.hash)/2 }} / 10</div>
+        <div class="total"> {{ summary[1] }} / 10</div>
     </div>
 
     <div class="section flex-row">        
@@ -55,7 +53,7 @@
                 <div class="state">{{data.relation}}</div>
             </div>
         </div>
-        <div class="total">{{ (data.feel + data.relation)/2 }} / 10</div>
+        <div class="total">{{ summary[2] }} / 10</div>
     </div>
 
      <div class="section flex-row">        
@@ -66,7 +64,7 @@
                  <div class="state">{{data.economy}}</div>
             </div>         
         </div>
-        <div class="total">{{data.economy}} / 10</div>
+        <div class="total">{{ summary[3] }} / 10</div>
     </div>
 
      <div class="section flex-row">        
@@ -82,7 +80,7 @@
             </div>
             
         </div>
-        <div class="total"> {{ (data.community + data.contribute)/2 }} / 10</div>
+        <div class="total"> {{ summary[4] }} / 10</div>
     </div>
 
      <div class="section flex-row">        
@@ -97,7 +95,7 @@
                 <div class="state">{{data.snus}}</div>
             </div>
         </div>
-        <div class="total"> {{ (data.smoke + data.snus)/2 }} / 10</div>
+        <div class="total"> {{ summary[5] }} / 10</div>
     </div>
 
      <div class="section flex-row">        
@@ -112,7 +110,7 @@
                 <div class="state">{{data.deny}}</div>
             </div>
         </div>
-        <div class="total"> {{ (data.sex + data.deny)/2 }} / 10</div>
+        <div class="total"> {{ summary[6] }} / 10</div>
     </div>
 </div>
 

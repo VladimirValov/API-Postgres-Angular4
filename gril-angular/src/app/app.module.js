@@ -9,6 +9,7 @@ var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var ng2_charts_1 = require("ng2-charts");
 var app_component_1 = require("./app.component");
+var radar_chart_component_1 = require("./components/radar-chart/radar-chart.component");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,7 +21,10 @@ AppModule = __decorate([
             platform_browser_1.BrowserModule,
             ng2_charts_1.ChartsModule
         ],
-        declarations: [app_component_1.AppComponent],
+        declarations: [
+            app_component_1.AppComponent,
+            radar_chart_component_1.RadarChartDemoComponent
+        ],
         bootstrap: [app_component_1.AppComponent]
     })
 ], AppModule);
