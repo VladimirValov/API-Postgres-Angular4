@@ -2,16 +2,15 @@
 # Install Dependencies
 npm install
 
-cd front-webpack-angular2
-npm install
-
 # Start Api Server
 nodemon app.js
 
-# Start Angular App
+# Build Angular App
 
 cd front-webpack-angular2
+
 npm run build
+ or
 npm run build:watch
 
 
