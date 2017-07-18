@@ -7,6 +7,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
+var http_1 = require("@angular/http");
 var ng2_charts_1 = require("ng2-charts");
 var app_component_1 = require("./app.component");
 var radar_chart_component_1 = require("./components/radar-chart/radar-chart.component");
@@ -19,7 +20,8 @@ AppModule = __decorate([
     core_1.NgModule({
         imports: [
             platform_browser_1.BrowserModule,
-            ng2_charts_1.ChartsModule
+            ng2_charts_1.ChartsModule,
+            http_1.HttpModule
         ],
         declarations: [
             app_component_1.AppComponent,

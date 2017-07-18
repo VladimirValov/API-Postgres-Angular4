@@ -1,36 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 
+import { ReportService } from './services/report.service' 
+
+
+
 @Component({
   selector: 'gril-app',
   templateUrl:'./app.component.html',
+  providers: [ ReportService ]
 })
+
 export class AppComponent implements OnInit { 
   name = 'Gril App'; 
-
-  count = 152;
-
-  data = { 
-   society: 2,
-   lonely: 2,
-
-   drink: 3,
-   hash: 3,
-
-   feel: 4,
-   relation: 4,
-
-   economy: 5,
-
-   community: 6,
-   contribute: 6,
-
-   smoke: 7,
-   snus: 7,
-
-   sex: 8,
-   deny: 8
-  };
-
+  count: number;
+  data:any = {};
   summary: Array<number> = [];
 
   calcTotal( data:any ): Array<number> {
@@ -47,8 +30,15 @@ export class AppComponent implements OnInit {
     return arr; 
   }
 
-  ngOnInit():void {
-    this.summary =  this.calcTotal(this.data);
+  constructor(private reportService: ReportService ) {}
+
+  ngOnInit():void {   
+    this.reportService.getReport().then((report) => {
+      console.log(report);   
+      this.data = report.data;
+      this.count = report.count;
+      this.summary =  this.calcTotal(this.data);           
+    })    
   }
 }
 

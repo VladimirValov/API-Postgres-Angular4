@@ -1,5 +1,6 @@
 import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpModule } from '@angular/http';
 
 import { ChartsModule } from 'ng2-charts';
 
@@ -9,7 +10,8 @@ import { RadarChartDemoComponent } from './components/radar-chart/radar-chart.co
 @NgModule({
   imports:      [ 
     BrowserModule,
-    ChartsModule
+    ChartsModule,
+    HttpModule
     ],
   declarations: [ 
     AppComponent,
