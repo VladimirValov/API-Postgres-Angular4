@@ -8,26 +8,18 @@ router.get('/', function(req, res, next) {
 
 module.exports = router;
 
-var answers = {
-  lonely: [1, 2],
-  drugs: [1, 2],
-  anxiety: [1, 2],
-  economy: [1],
-  community: [1, 2],
-  heath: [1, 2],
-  sex: [1, 2]
-}
+
 var DATA =  {
     count: 255,
     data: { 
-        society: 1,
+        society: 10,
         lonely: 2,
 
         drink: 3,
         hash: 3,
 
-        feel: 4,
-        relation: 4,
+        feel: 10,
+        relation: 6,
 
         economy: 5,
 
