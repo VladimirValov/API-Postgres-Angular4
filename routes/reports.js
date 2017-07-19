@@ -1,10 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
-/* GET home page. */
+const { Answer } = require('../models/index.js');
+
+// /* GET home page. */
+// router.get('/all', function(req, res, next) {
+
+//   Answer.findAll({attributes: ['society', 'lonely', 'drink', 'hash', 'feel', 'relation', 'economy', 'community', 'contribute', 'smoke', 'snus', 'sex', 'deny']})
+//     .then(answers => {
+//     console.log(answers);
+//     res.send(answers);
+//   })  
+// });
+
 router.get('/', function(req, res, next) {
-  res.send(DATA);
-});
+    res.send(DATA);
+});  
 
 module.exports = router;
 
@@ -34,40 +45,3 @@ var DATA =  {
     }
 }
 
-// var answersDB = {
-//   lonely1: 1 ,
-//   lonely2: 2,
-//   drugs1: 3, 
-//   drugs2: 4,
-//   anxiety1: 5,
-//   anxiety2: 6,
-//   economy: 7,
-//   community1: 8,
-//   community2: 9,
-//   heath1: 10,
-//   heath2: 11,
-//   sex1: 12,
-//   sex2: 13
-// }
-
-// {
-//    society: [0..10];
-//    lonely: [0..10];
-
-//    drink: [0..10];
-//    hash: [0..10];
-
-//    feel: [0..10];
-//    relation: [0..10];
-
-//    economy: [0..10];
-
-//    community: [0..10];
-//    contribute: [0..10];
-
-//    smoking: [0..10];
-//    suns: [0..10];
-
-//    sex: [0..10];
-//    deny: [0..10];
-// }
