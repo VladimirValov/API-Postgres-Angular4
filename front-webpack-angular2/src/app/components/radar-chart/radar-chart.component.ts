@@ -4,7 +4,8 @@ import { Component, Input, OnInit } from '@angular/core';
   selector: 'radar-chart',
   templateUrl: './radar-chart.component.html'
 })
-export class RadarChartDemoComponent implements OnInit {
+
+export class RadarChartComponent implements OnInit {
   @Input() dataChart: any;
 
   radarChartType:string = 'radar'; 
@@ -12,7 +13,7 @@ export class RadarChartDemoComponent implements OnInit {
   radarChartLabels:string[] = ['Ensomhed/social angst', 'Rusmidler', 'Præstationsangst', 'Økonomi', 'Sunde fællesskaber', 'Sundhed', 'Sex'];
   
   // Initial data for static chart display  
-  radarChartData:any = [{ data: [0, 0, 0, 0, 0, 0, 10] }]; 
+  radarChartData:any = [{ data: [10, 0, 0, 0, 0, 0, 0] }]; 
   
   ngOnInit(): void {
     this.radarChartData.push( {data: this.dataChart} );

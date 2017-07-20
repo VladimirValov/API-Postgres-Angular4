@@ -17,6 +17,9 @@ export class AppComponent implements OnInit {
   count: number;
   data:any = {};
   summary: number[] = [];
+  detail: any;
+
+
 
   calcTotal( data:any ) :number[] {
     let arr:number[] = [];
@@ -38,11 +41,16 @@ export class AppComponent implements OnInit {
   constructor(private reportService: ReportService ) {}
 
   ngOnInit():void {   
-    this.reportService.getReport().then((report) => {
+    this.reportService.getSummaryReport().then((report) => {
       console.log(report);   
       this.data = report;     
       this.summary =  this.calcTotal(this.data);           
-    })    
+    })
+
+    this.reportService.getDetailReport().then(report => {
+      console.log(report);
+      this.detail = report; 
+    })
   }
 }
 
