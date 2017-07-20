@@ -3,7 +3,7 @@
     ".git",
     "node_modules",
     "public",
-    "gril-angular"
+    "front-webpack-angular2"
   ],
   "verbose": true
 }
