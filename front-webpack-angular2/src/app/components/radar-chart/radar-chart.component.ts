@@ -12,7 +12,7 @@ export class RadarChartDemoComponent implements OnInit {
   radarChartLabels:string[] = ['Ensomhed/social angst', 'Rusmidler', 'Præstationsangst', 'Økonomi', 'Sunde fællesskaber', 'Sundhed', 'Sex'];
   
   // Initial data for static chart display  
-  radarChartData:any = [{ data: [0, 0, 0, 0, 0, 0, 0] }]; 
+  radarChartData:any = [{ data: [0, 0, 0, 0, 0, 0, 10] }]; 
   
   ngOnInit(): void {
     this.radarChartData.push( {data: this.dataChart} );

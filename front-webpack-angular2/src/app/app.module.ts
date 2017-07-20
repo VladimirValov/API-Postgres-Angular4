@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 
 import { ChartsModule } from 'ng2-charts';
+import 'chart.js/src/chart.js';
 
 import { AppComponent }  from './app.component';
 import { RadarChartDemoComponent } from './components/radar-chart/radar-chart.component';
