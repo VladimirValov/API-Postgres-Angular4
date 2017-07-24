@@ -3,12 +3,35 @@
 
 <div class='header flex-row ' >
     <div class='chart'>
-        <div *ngIf="summary.length"><radar-chart [dataChart]="summary" ></radar-chart></div>
+        <div *ngIf="radarChartData">
+            <radar-chart [radarChartData]="radarChartData" ></radar-chart>
+        </div>
     </div>
     <div class='board flex-column'>
         <h1>{{name}}</h1>
         <div>￼<a href ="">Log out</a></div>
-        <div class="filter">Date (from/to)</div>
+
+        <div class="filter">
+            <p>
+                <!-- {{dateFrom}} -->
+            </p>
+            <div class="from">
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="picker" [(ngModel)]="dateFrom" placeholder="Choose a date">
+                    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                </md-input-container>
+                <md-datepicker #picker></md-datepicker>               
+            </div>
+            <div class="to">
+                 <md-input-container>
+                    <input mdInput [mdDatepicker]="toDatepicker" [(ngModel)]="dateTo" placeholder="Choose a date">
+                    <button mdSuffix [mdDatepickerToggle]="toDatepicker"></button>
+                </md-input-container>
+                <md-datepicker #toDatepicker></md-datepicker> 
+            </div>   
+            {{dateFrom}} {{dateTo}} 
+
+        </div>
         <div class="count">Replies: {{data.count}} </div>
         <div class="params"> 
        
@@ -16,25 +39,31 @@
     </div>
 </div>
 
-
-<div class="content">
-    <md-tab-group>
-    <md-tab label="Summary">      
-        <p>Summary report data</p>
-    </md-tab>
-    <md-tab label="Detail">
-        <p>Detail Report data</p>
-    </md-tab>
-    </md-tab-group>
-</div>
-<br>
-<div class="content">
-    <detail-report [answers]="detail">Detail Report data</detail-report>
- </div>
-
-
+<!-- Summary Report on All Answers -->
 <div class="content">    
     <summary-report [data]="data" [summary]="summary">Summary report data</summary-report> 
 </div>
+
+<!-- Detail Tables with all Answres -->
+<div class="content">
+    <detail-report [answers]="detail" [summary]="summary">Detail Report data</detail-report>
+ </div>
+
+ <!-- Database Control -->
+<div class="content">
+    <div class="flex-row">
+        <div class="db-status on"> 
+            <h3>Database On</h3>        
+        </div>
+        <div class="db-control flex-column">
+            <a href="">Open Database control</a>
+            <a href="">Database opening</a>
+            <a href="">Scheduling</a>
+        </div>    
+    </div>
+</div>
+
+
+
 
 

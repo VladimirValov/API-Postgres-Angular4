@@ -1,24 +1,19 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'radar-chart',
   templateUrl: './radar-chart.component.html'
 })
 
-export class RadarChartComponent implements OnInit {
+export class RadarChartComponent  {
   @Input() dataChart: any;
+  @Input() dataSelected: any;
+  @Input() radarChartData:any; 
 
   radarChartType:string = 'radar'; 
 
   radarChartLabels:string[] = ['Ensomhed/social angst', 'Rusmidler', 'Præstationsangst', 'Økonomi', 'Sunde fællesskaber', 'Sundhed', 'Sex'];
   
-  // Initial data for static chart display  
-  radarChartData:any = [{ data: [10, 0, 0, 0, 0, 0, 0] }]; 
-  
-  ngOnInit(): void {
-    this.radarChartData.push( {data: this.dataChart} );
-  }
-
   public radarChartOptions:any = {
     legend: { display: false, fullWidth: false },
     responsive: true
@@ -32,6 +27,10 @@ export class RadarChartComponent implements OnInit {
     {
       borderColor: 'rgba(54, 162, 235, 1)',
       backgroundColor: 'rgba(54, 162, 235, 0.2)'
+    },
+    {
+      borderColor: 'rgba(231, 109, 14, 1)',
+      backgroundColor: 'rgba(231, 109, 14, 0.2)'
     }
   ];
 

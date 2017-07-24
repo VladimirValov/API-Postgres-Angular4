@@ -1,49 +1,60 @@
-<table>
-    <!-- <tr>
-        <th>"society"</th>
-        <th>"lonely"</th>
-        <th>"drink"</th>
-        <th>"hash"</th>
-        <th>"feel"</th>
-        <th>"relation"</th>
-        <th>"economy"</th>
-        <th>"community"</th>
-        <th>"contribute"</th>
-        <th>"smoke"</th>
-        <th>"snus"</th>
-        <th>"sex"</th>
-        <th>"deny"</th>        
-    </tr> -->
-       <tr>
-        <th>№</th>   
-        <th>1</th>
-        <th>2</th>
-        <th>3</th>
-        <th>4</th>
-        <th>5</th>
-        <th>6</th>
-        <th>7</th>
-        <th>8</th>
-        <th>9</th>
-        <th>10</th>
-        <th>11</th>
-        <th>12</th>
-        <th>13</th>        
-    </tr>
-    <tr *ngFor="let answer of answers; let i = index" onclick="" >
-        <td>{{i +1}}</td>    
-        <td>{{answer.society}}</td>   
-        <td>{{answer.lonely}}</td>     
-        <td>{{answer.drink}}</td>     
-        <td>{{answer.hash}}</td>     
-        <td>{{answer.feel}}</td>     
-        <td>{{answer.relation}}</td>     
-        <td>{{answer.economy}}</td>     
-        <td>{{answer.community}}</td>     
-        <td>{{answer.contribute}}</td>     
-        <td>{{answer.smoke}}</td>
-        <td>{{answer.snus}}</td>     
-        <td>{{answer.sex}}</td>     
-        <td>{{answer.deny}}</td>       
-    </tr>
-</table>
+
+<div class="detail-report">
+    <div class="list-answers">
+        <table>
+             <tr>
+                <th>№</th>  
+                <th colspan="2">Social</th>      
+                <th colspan="2">Rusmidler</th>
+                <th colspan="2">Præstationsangst</th>
+                <th>Økonomi</th>
+                <th colspan="2">Fællesskaber</th>
+                <th colspan="2">Sundhed</th>
+                <th colspan="2">Sex</th>
+            <tr>
+                <td></td>   
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>        
+            </tr>
+            <tr *ngFor="let answer of answers; let i = index" (click)="showSelected(answer)" >
+                <td>{{i +1}}</td>    
+                <td>{{answer.society}}</td>   
+                <td>{{answer.lonely}}</td>     
+                <td>{{answer.drink}}</td>     
+                <td>{{answer.hash}}</td>     
+                <td>{{answer.feel}}</td>     
+                <td>{{answer.relation}}</td>     
+                <td>{{answer.economy}}</td>     
+                <td>{{answer.community}}</td>     
+                <td>{{answer.contribute}}</td>     
+                <td>{{answer.smoke}}</td>
+                <td>{{answer.snus}}</td>     
+                <td>{{answer.sex}}</td>     
+                <td>{{answer.deny}}</td>       
+            </tr>
+        </table>
+    </div>
+
+    <div *ngIf="answerSelected" class="chart-answer"> 
+
+         <button md-raised-button (click)="hideSelected()">Hide</button>   
+       
+         <!-- Radar Chart Component -->
+        <radar-chart [radarChartData]="radarChartData" >Radar Chart</radar-chart>       
+       <!-- Summary Information Component -->
+        <summary-report class="summary-detail" [data]="answerSelected" [summary]="summarySelected">Summary report data</summary-report>
+      
+       <!-- <button md-raised-button (click)="hideSelected()">Hide</button>   -->
+    </div>
+</div>
