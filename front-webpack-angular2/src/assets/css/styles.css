@@ -17,20 +17,17 @@ h1 {
   font-family: Arial, Helvetica, sans-serif;
   font-size: 250%;
 }
-.app {
-  width: 80vw;
+
+.app { 
+  width: 95vw;
+  max-width: 1200px;
 }
 
-@media(max-width: 1400px) {
-  .app {
-    width: 95vw;
-  }
-
-}
 .flex-column {
   display: flex;
   flex-direction: column;
 }
+
 .flex-row {
   display: flex;
   flex-direction: row;
@@ -47,22 +44,31 @@ h1 {
   padding: 30px;
 }
 .content {
- 
+
 }
 
 .header {
   padding: 16px 32px;
+  height: 50vw;
+  max-height: 600px;
+  min-height: 300px;
 }
 .chart {
   width: 60%;
   min-width:300px
 }
 .board {
-  width: 40%
+  width: 40%;
+  text-align: right;
+  height: 100%;
+  justify-content: space-around;
 }
 
 .board div {
   /* padding: 20px; */
+}
+.user {
+  
 }
 
 

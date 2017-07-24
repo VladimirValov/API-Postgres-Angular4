@@ -16,10 +16,4 @@ router.post('/', function(req, res, next) {
 });
 
 
-//Send All answers in DB
-router.get('/', function(req, res, next) {
-    Answer.findAll().then(answers => res.status(200).send(answers)).catch(next);
-});
-
-
 module.exports = router;

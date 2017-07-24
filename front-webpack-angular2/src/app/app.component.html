@@ -8,32 +8,37 @@
         </div>
     </div>
     <div class='board flex-column'>
-        <h1>{{name}}</h1>
-        <div>￼<a href ="">Log out</a></div>
+        <nav class="user">
+            <h1>{{name}}</h1>
+            <div>￼<a href ="">Log out</a></div>
+        </nav>
+        
 
         <div class="filter">
-            <p>
-                <!-- {{dateFrom}} -->
-            </p>
+       
             <div class="from">
                 <md-input-container>
-                    <input mdInput [mdDatepicker]="picker" [(ngModel)]="dateFrom" placeholder="Choose a date">
-                    <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                    <input mdInput [mdDatepicker]="pickerfrom" [(ngModel)]="dateFrom" placeholder="Choose a date">
+                    <button mdSuffix [mdDatepickerToggle]="pickerfrom"></button>
                 </md-input-container>
-                <md-datepicker #picker></md-datepicker>               
+                <md-datepicker #pickerfrom></md-datepicker>               
             </div>
+            {{dateFrom}}
             <div class="to">
                  <md-input-container>
-                    <input mdInput [mdDatepicker]="toDatepicker" [(ngModel)]="dateTo" placeholder="Choose a date">
-                    <button mdSuffix [mdDatepickerToggle]="toDatepicker"></button>
+                    <input mdInput [mdDatepicker]="pickerto" [(ngModel)]="dateTo" placeholder="Choose a date">
+                    <button mdSuffix [mdDatepickerToggle]="pickerto"></button>
                 </md-input-container>
-                <md-datepicker #toDatepicker></md-datepicker> 
-            </div>   
-            {{dateFrom}} {{dateTo}} 
+                <md-datepicker #pickerto></md-datepicker> 
+            </div> 
+            {{dateTo}}
+            <p><button md-raised-button (click)="getReportByDate(dateFrom, dateTo)">Get Report!</button></p>
+          
+            <div class="status"> {{status}}</div>
+            <div class="params"> 
 
         </div>
-        <div class="count">Replies: {{data.count}} </div>
-        <div class="params"> 
+        
        
         </div>
     </div>

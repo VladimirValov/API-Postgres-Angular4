@@ -5,19 +5,19 @@ module.exports = {
 
 
     return queryInterface.bulkInsert('Answers', [{
-      society: 4,
-      lonely: 4,
-      drink: 4,
-      hash: 4,
-      feel: 4,
-      relation: 4,
-      economy: 4,
-      community: 4,
-      contribute: 4,
-      smoke: 4,
-      snus: 4,
-      sex: 4,
-      deny: 4,
+      society: RandomInt(),
+      lonely: RandomInt(),
+      drink: RandomInt(),
+      hash: RandomInt(),
+      feel: RandomInt(),
+      relation: RandomInt(),
+      economy: RandomInt(),
+      community: RandomInt(),
+      contribute: RandomInt(),
+      smoke: RandomInt(),
+      snus: RandomInt(),
+      sex: RandomInt(),
+      deny: RandomInt(),
       createdAt: '2017-07-12',
       updatedAt: new Date()
     }]);    
@@ -33,3 +33,7 @@ module.exports = {
     */
   }
 };
+
+function RandomInt() {
+  return Math.floor(Math.random() * (11 - 0)) + 0;
+}
