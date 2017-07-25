@@ -1,6 +1,6 @@
 
 <div class="detail-report">
-    <div class="list-answers">
+    <div *ngIf="answers" class="list-answers">
         <table>
              <tr>
                 <th>№</th>  
@@ -27,8 +27,8 @@
                 <td>12</td>
                 <td>13</td>        
             </tr>
-            <tr *ngFor="let answer of answers; let i = index" (click)="showSelected(answer)" >
-                <td>{{i +1}}</td>    
+            <tr *ngFor="let answer of answers.slice(begin, end); let i = index" (click)="showSelected(answer)"  [className]="(answer == answerSelected) ? 'selected' : ''" >
+                <td>{{i + begin + 1}}  </td>    
                 <td>{{answer.society}}</td>   
                 <td>{{answer.lonely}}</td>     
                 <td>{{answer.drink}}</td>     
@@ -43,15 +43,30 @@
                 <td>{{answer.sex}}</td>     
                 <td>{{answer.deny}}</td>       
             </tr>
+            <tr class="paginator"> 
+                <td colspan="14"> 
+                    <div *ngIf="answers" >
+                    <md-paginator [length]="answers.length"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="OnPaginator($event)">
+                    </md-paginator>                  
+                    </div>
+                </td>
+            </tr>
         </table>
+       
     </div>
 
     <div *ngIf="answerSelected" class="chart-answer"> 
 
-         <button md-raised-button (click)="hideSelected()">Hide</button>   
+
+         <button md-raised-button (click)="hideSelected()">Hide</button>  
+         
        
          <!-- Radar Chart Component -->
         <radar-chart [radarChartData]="radarChartData" >Radar Chart</radar-chart>       
+        <!-- {{answerSelected.id}}  -->
        <!-- Summary Information Component -->
         <summary-report class="summary-detail" [data]="answerSelected" [summary]="summarySelected">Summary report data</summary-report>
       

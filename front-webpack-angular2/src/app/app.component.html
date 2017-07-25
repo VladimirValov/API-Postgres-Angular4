@@ -11,11 +11,9 @@
         <nav class="user">
             <h1>{{name}}</h1>
             <div>￼<a href ="">Log out</a></div>
-        </nav>
-        
+        </nav>        
 
-        <div class="filter">
-       
+        <div class="filter">       
             <div class="from">
                 <md-input-container>
                     <input mdInput [mdDatepicker]="pickerfrom" [(ngModel)]="dateFrom" placeholder="Choose a date">
@@ -34,12 +32,7 @@
             <!-- {{dateTo}} -->
             <p><button md-raised-button (click)="getReportByDate(dateFrom, dateTo)">Get Report!</button></p>
           
-            <div class="status"> {{status}}</div>
-            <div class="params"> 
-
-        </div>
-        
-       
+            <div class="status"> {{status}}</div>       
         </div>
     </div>
 </div>

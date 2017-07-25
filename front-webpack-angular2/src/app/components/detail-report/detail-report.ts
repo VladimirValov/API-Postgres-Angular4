@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, OnChanges} from '@angular/core';
+import {PageEvent} from '@angular/material';
 
 import { MakeParamsService } from '../../services/makeParams.service' 
 import { Answer } from '../../data-class/answer';
@@ -13,11 +14,25 @@ import { Answer } from '../../data-class/answer';
 
 export class DetailReportComponent {    
     @Input() answers: Answer[];
-    @Input() summary: number[];
+    @Input() summary: number[];  
 
     answerSelected: Answer;
     summarySelected:number[];
     radarChartData: any;
+
+    //paginator
+    length = 100;
+    pageSize = 25;
+    pageSizeOptions = [10, 25, 50, 100]
+    
+    begin = 0;
+    end = this.pageSize;    
+    
+    OnPaginator (params: PageEvent) {      
+  
+        this.begin = params.pageIndex * params.pageSize;
+        this.end = this.begin + params.pageSize
+    }      
 
     constructor(private makeParamsService: MakeParamsService ) {}   
 

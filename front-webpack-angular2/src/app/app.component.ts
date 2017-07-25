@@ -27,11 +27,12 @@ export class AppComponent implements OnInit {
   radarChartData: any;
   summary: number[] = [];
   detail: Answer[];
-  dateFrom: Date ;
-  dateTo: Date ;  
+  dateFrom = new Date();
+  dateTo = new Date();  
   status: string;
 
   constructor(private reportService: ReportService, private makeParams: MakeParamsService ) {}
+  
   
   getSummaryReport(from: Date, to: Date) :void {
     this.status = 'Receive data...'
@@ -47,16 +48,14 @@ export class AppComponent implements OnInit {
 
   getDetailReport(from: Date, to: Date) :void  {
 
-    this.reportService.getDetailReport(from, to).then(report => {
-          // console.log(report);
+    this.reportService.getDetailReport(from, to).then(report => {       
           this.detail = report; 
         })
   }
 
 
-  // get a report based on the Datepicker
   getReportByDate (from: Date, to: Date) :void {
-    //fix time
+
     from.setHours(0, 0, 0);
     to.setHours(23, 59, 59 );    
 
@@ -66,6 +65,6 @@ export class AppComponent implements OnInit {
   
 
   ngOnInit():void {  
-    this.getReportByDate(new Date(), new Date());
+    this.getReportByDate(this.dateFrom, this.dateTo);
   }
 }

@@ -21,6 +21,7 @@ GET: localhost:5000/reports
 
 # Screen
 <img src="./2017-07-19.png">
+<img src="./2017-07-25.png">
 
 <hr>
 # Init sequelize 

@@ -67,12 +67,24 @@ td:last-child, th:last-child {
 
 tr:nth-child(n+3):hover {
     cursor: pointer;
-    background: #d9edf7;
+    /* background: #d9edf7; */
+    background: rgba(231, 109, 14, 0.3);
+}
+
+.selected {
+    background: rgba(231, 109, 14, 0.5) !important;
+}
+
+.paginator tr, .paginator td {
+   padding: 0 !important;
 }
 
 .chart-answer button {
     position: absolute;
 }
+
+
+
 
 
 @media (max-width: 1024px) {

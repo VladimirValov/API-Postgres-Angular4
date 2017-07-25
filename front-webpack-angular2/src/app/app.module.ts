@@ -13,7 +13,8 @@ import {
   MdButtonModule,
   MdDatepickerModule,
   MdNativeDateModule,
-  MdInputModule
+  MdInputModule,
+  MdPaginatorModule
   } from '@angular/material';
 
 // import { CdkTableModule } from '@angular/cdk'
@@ -36,8 +37,8 @@ import { DetailReportComponent } from "./components/detail-report/detail-report"
     MdButtonModule,
     MdDatepickerModule,
     MdNativeDateModule,
-    MdInputModule
-    
+    MdInputModule,
+    MdPaginatorModule
     ],
   declarations: [ 
     AppComponent,
