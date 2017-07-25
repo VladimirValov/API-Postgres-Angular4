@@ -20,8 +20,9 @@ POST: localhost:5000/answers
 GET: localhost:5000/reports
 
 # Screen
-<img src="./2017-07-19.png">
-<img src="./2017-07-25.png">
+<img src="./2017-07-25-1.png">
+<img src="./2017-07-25-2.png">
+<img src="./2017-07-25-3.png">
 
 <hr>
 # Init sequelize 
