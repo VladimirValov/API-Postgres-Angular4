@@ -46,29 +46,26 @@ export class AppComponent implements OnInit {
   }
 
   getDetailReport(from: Date, to: Date) :void  {
-    this.reportService.getDetailReport().then(report => {
+
+    this.reportService.getDetailReport(from, to).then(report => {
           // console.log(report);
           this.detail = report; 
         })
   }
 
 
-  // get a report based on the Datepicke
+  // get a report based on the Datepicker
   getReportByDate (from: Date, to: Date) :void {
-    console.log(from, to);
+    //fix time
+    from.setHours(0, 0, 0);
+    to.setHours(23, 59, 59 );    
+
     this.getSummaryReport(from, to);
     this.getDetailReport(from, to);
   }
   
 
-  ngOnInit():void {   
-    let date = new Date();
-    date.setDate( date.getDate() - 10 );
-
-    this.dateFrom = date;
-    this.dateTo = new Date();
-
-    this.getSummaryReport(this.dateFrom, this.dateTo);
-    this.getDetailReport(this.dateFrom, this.dateTo);   
+  ngOnInit():void {  
+    this.getReportByDate(new Date(), new Date());
   }
 }

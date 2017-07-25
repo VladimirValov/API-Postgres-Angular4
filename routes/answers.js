@@ -7,12 +7,12 @@ const {  validateAnswer } = require('../services/validateService');
 //Save to DB
 router.post('/', function(req, res, next) {
     // console.log("Autorization jwt-token: " + req.headers.authorization);
-    const data = req.body;    
-    const {err, params } = validateAnswer(data);
+
+    const {err, params } = validateAnswer(req.body);
 
     if (err) return next(err);
 
-    Answer.create(params).then(answer => res.status(201).send(answer) ).catch(next);
+    Answer.create(params).then(answer => res.status(201).send(answer)).catch(err => next(err));
 });
 
 

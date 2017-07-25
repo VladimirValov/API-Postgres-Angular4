@@ -15,11 +15,12 @@ export class ReportService {
 
 
     getSummaryReport(from?: Date, to?: Date): Promise<any> {   
+        console.log("getSummaryReport",from, to);
         return this.http.get(this.reportUrl + '/summary', {params: {from, to} }).toPromise().then(response => response.json());
     }
         
     getDetailReport(from?: Date, to?: Date): Promise<any> {
-        console.log( from, to);
+        console.log("getDetailReport", from, to);
         return this.http.get(this.reportUrl + '/detail', {params: {from, to} }).toPromise().then(response => response.json());
     }
 }
