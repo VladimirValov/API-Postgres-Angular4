@@ -1,6 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
-import { ReportService } from './services/report.service' 
+import { ReportService } from './services/report.service';
+import { MakeParamsService } from './services/makeParams.service';
+
+import { Answer } from './data-class/answer';
+
 
 import '../assets/css/styles.css';
 // import  "chart.js/dist/Chart.bundle.min.js";
@@ -9,44 +13,58 @@ import '../assets/css/styles.css';
 @Component({
   selector: 'gril-app',
   templateUrl:'./app.component.html',
-  providers: [ ReportService ]
+  providers: [ 
+    ReportService,
+    MakeParamsService
+  ]
 })
+
 
 export class AppComponent implements OnInit { 
   name = 'Gril App'; 
   count: number;
   data:any = {};
+  radarChartData: any;
   summary: number[] = [];
+  detail: Answer[];
+  dateFrom = new Date();
+  dateTo = new Date();  
+  status: string;
 
-  calcTotal( data:any ) :number[] {
-    let arr:number[] = [];
+  constructor(private reportService: ReportService, private makeParams: MakeParamsService ) {}
+  
+  
+  getSummaryReport(from: Date, to: Date) :void {
+    this.status = 'Receive data...'
 
-    console.log(data);
-    
-    arr[0] =  data.society * 0.4   + data.lonely * 0.6;
-    arr[1] =  data.drink * 0.3     + data.hash * 0.7;
-    arr[2] =  data.feel * 0.6      + data.relation * 0.4;
-    arr[3] =  data.economy * 1;
-    arr[4] =  data.community * 0.7 + data.contribute * 0.3;
-    arr[5] =  data.smoke * 0.7     + data.snus * 0.3;
-    arr[6] =  data.sex * 0.5       + data.deny * 0.5;
+    this.reportService.getSummaryReport(from, to).then(report => {       
+      this.data = report;
+      this.summary = this.makeParams.calcSummary(this.data);
+      this.radarChartData = this.makeParams.dataChart(this.summary);     
 
-    return arr.map(el => Math.round(el * 10) / 10 ); 
+      this.status = `Successfully received ${this.data.count} entries!`  
+    });
+  }
+
+  getDetailReport(from: Date, to: Date) :void  {
+
+    this.reportService.getDetailReport(from, to).then(report => {       
+          this.detail = report; 
+        })
   }
 
 
-  constructor(private reportService: ReportService ) {}
+  getReportByDate (from: Date, to: Date) :void {
 
-  ngOnInit():void {   
-    this.reportService.getReport().then((report) => {
-      console.log(report);   
-      this.data = report;     
-      this.summary =  this.calcTotal(this.data);           
-    })    
+    from.setHours(0, 0, 0);
+    to.setHours(23, 59, 59 );    
+
+    this.getSummaryReport(from, to);
+    this.getDetailReport(from, to);
+  }
+  
+
+  ngOnInit():void {  
+    this.getReportByDate(this.dateFrom, this.dateTo);
   }
 }
-
-
-
-
-

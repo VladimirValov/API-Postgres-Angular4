@@ -1,23 +1,26 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 
-import 'rxjs/add/operator/toPromise';
+import { Answer } from '../data-class/answer';
 
-import { DATA } from './mock-report';
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ReportService {
     private reportUrl = 'http://localhost:5000/reports'; 
+    // private reportAnswers = 'http://localhost:5000/answers'; 
+
 
     constructor(private http: Http) { }
 
-    getReport(): Promise<any> { 
-        // return Promise.resolve(DATA);
-        return this.http.get(this.reportUrl)
-            .toPromise()
-            .then((response) => {
-                console.log(response);
-                return response.json();
-            })
-    }    
+
+    getSummaryReport(from?: Date, to?: Date): Promise<any> {   
+        console.log("getSummaryReport",from, to);
+        return this.http.get(this.reportUrl + '/summary', {params: {from, to} }).toPromise().then(response => response.json());
+    }
+        
+    getDetailReport(from?: Date, to?: Date): Promise<any> {
+        console.log("getDetailReport", from, to);
+        return this.http.get(this.reportUrl + '/detail', {params: {from, to} }).toPromise().then(response => response.json());
+    }
 }
