@@ -22,8 +22,9 @@ import "@angular/material/prebuilt-themes/indigo-pink.css";
 
 import { AppComponent }  from './app.component';
 import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
-import { SummaryReportComponent } from './components/summary-report/summary-component';
-import { DetailReportComponent } from "./components/detail-report/detail-report";
+import { SummaryReportComponent } from './components/summary-report/summary-report.component';
+import { DetailReportComponent } from "./components/detail-report/detail-report.component";
+import { ControlDbComponent } from "./components/control-db/control-db.component";
 
 @NgModule({
   imports:      [ 
@@ -44,7 +45,8 @@ import { DetailReportComponent } from "./components/detail-report/detail-report"
     AppComponent,
     RadarChartComponent,
     SummaryReportComponent,
-    DetailReportComponent
+    DetailReportComponent,
+    ControlDbComponent
     ],
   bootstrap:    [ AppComponent ]
 })

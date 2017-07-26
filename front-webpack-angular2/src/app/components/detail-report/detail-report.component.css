@@ -1,0 +1,97 @@
+
+.detail-report {
+    display:flex;
+    flex-direction: row;    
+}
+.list-answers, .chart-answer {
+    flex: 1 auto; 
+}
+
+.chart-answer {
+    padding-left: 20px;   
+}
+
+table {
+    width:100%;
+    border-collapse: collapse;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2),
+                0 8px 10px 1px rgba(0,0,0,.14),
+                0 3px 14px 2px rgba(0,0,0,.12);
+    font-size: 12px;
+}
+
+th {
+    /* font-size: 12px; */
+    font-weight: bold;
+    padding: 10px 0;
+    border-bottom: 2px solid #999;
+     border-right: 1px solid #999;
+}
+
+tr:nth-child(2) {
+    border-bottom: 2px solid #999;
+    background: #DDD;
+    /* font-size: 12px; */
+}
+
+td {
+    text-align: center;
+    padding: 8px;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+}
+
+tr:nth-child(2n+4) {
+    background: #EEE;
+}
+
+
+td:nth-child(-2n+7), td:nth-child(2n+8), th:nth-child(-2n+7), th:nth-child(2n+8)  {
+    border-right: 1px solid #999;
+}
+ 
+td:first-child  {
+    border-right: 2px solid #999;
+    border-bottom: 1px solid #CCC;
+    background: #DDD;
+    /* font-size: 12px; */
+}
+
+th:first-child {
+     border-right: 2px solid #999;
+}
+
+td:last-child, th:last-child {
+    border-right: none;
+}
+
+tr:nth-child(n+3):hover {
+    cursor: pointer;
+    /* background: #d9edf7; */
+    background: rgba(231, 109, 14, 0.3);
+}
+
+.selected {
+    background: rgba(231, 109, 14, 0.5) !important;
+}
+
+.paginator tr, .paginator td {
+   padding: 0 !important;
+   cursor: default !important;
+}
+
+.chart-answer button {
+    position: absolute;
+}
+
+
+
+
+
+@media (max-width: 1024px) {
+  td {
+    padding:8px 4px;
+    font-size: 12px;
+  }
+
+}

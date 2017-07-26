@@ -1,0 +1,28 @@
+    <div class="control-db flex-row">
+        <div class="db-status on"> 
+            <h3>Database: {{ (statusDb) ? "On" : "Off" }} </h3>        
+        </div>
+        <div class="db-control flex-column">
+            <a href="">Open Database control</a>
+            <a href="">Database opening</a>
+            <a href="">Scheduling</a>
+        </div>    
+    </div>
+    <br>
+
+    <div *ngIf="rules" class="scheduler">
+        <div *ngFor="let rule of rules" [className]="(rule.access) ? 'on' : 'off'"> 
+            <div class="rule flex-row">
+                <div class="date">{{formatDate(rule.date)}}</div>
+                <div [className]="rule.access">{{ (rule.access) ? "On" : "Off"  }}</div>             
+            </div>
+        </div>
+    </div>
+
+    <br>
+
+    <div *ngIf="calendar" class="">
+        <div *ngFor="let day of calendar"> 
+            {{ formatDate(day) }}
+        </div>
+    </div>

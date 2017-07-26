@@ -1,0 +1,68 @@
+
+/*   */
+.db-status {
+  width:30%;
+  text-align: center;
+
+}
+.on {
+  
+}
+
+.off {
+    
+}
+
+.db-status.on {
+  background-color:#a0daa0;
+}
+
+.db-status.off {
+  background-color: #edaeae;
+}
+.db-control {
+
+}
+
+
+.scheduler {
+    width: 25%;
+}
+
+.rule {
+    position: relative;
+    
+    padding: 10px 20px;  
+}
+.date {
+    display: block;
+    border: 1px solid #ddd;
+    padding: 10px 20px;
+}
+
+.on .date {
+      background: #95c3ff;
+      /* box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12); */
+
+}
+.off .date {
+    background: #eee;
+}
+
+.rule .true, .rule .false  {
+ padding: 12px;     
+}
+
+.rule .true {
+    background: greenyellow;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+
+}
+
+.rule .false {
+    background: #ddd;
+}
+.rule .true:hover, .rule .false:hover {
+    cursor: pointer;
+    box-shadow: 0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
+    }

@@ -37,6 +37,12 @@ This will create
 # Create Answers Model
 sequelize model:create --name Answer --attributes 'society:integer, lonely:integer, drink:integer, hash:integer, feel:integer, relation:integer, economy:integer, community:integer, contribute:integer, smoke:integer, snus:integer, sex:integer, deny:integer'
 
+#Create DB Control
+sequelize model:create --name ControlDb --attributes 'date:date, access:boolean'
+
+# Migrate DB
+sequelize db:migrate
+
 # Seeders
 sequelize seed:create
 
