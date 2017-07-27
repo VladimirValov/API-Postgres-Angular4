@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { RequestOptions, Headers, Http } from '@angular/http';
 
 import { Schedule } from '../data-class/schedule';
 
@@ -16,4 +16,18 @@ export class ControlDbService {
         return this.http.get(this.controlUrl).toPromise().then(response => response.json())
     }
 
+    switchDb(rule: any ) :Promise<any> {
+
+        const newRule: any = {
+            date: rule.date,
+            access: !rule.access
+        }
+
+        return (rule.access) 
+            ? this.http.delete(this.controlUrl, new RequestOptions({body: newRule}) ).toPromise().then(response => newRule)
+            : this.http.post(this.controlUrl, newRule).toPromise().then(response => response.json());
+    }
+
 }
+
+

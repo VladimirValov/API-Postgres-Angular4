@@ -24,6 +24,13 @@ export class ControlDbComponent implements OnInit {
         } )
     }
 
+    switchDb (rule: any): void{
+        console.log(rule);    
+        this.controlDbService.switchDb(rule).then(response => rule.access = response.access );
+        // rule.access=null;
+    }
+
+
     formatDate(date: Date) {
         return new Date(date).toLocaleString('ru', {year: 'numeric', day:"2-digit", month:'2-digit'})
     }   
