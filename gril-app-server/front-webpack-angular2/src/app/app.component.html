@@ -1,0 +1,58 @@
+<!--<radar-chart [dataChart]="totalData" ></radar-chart>-->
+
+
+<div class='header flex-row ' >
+    <div class='chart'>
+        <div *ngIf="radarChartData">
+            <radar-chart [radarChartData]="radarChartData" ></radar-chart>
+        </div>
+    </div>
+    <div class='board flex-column'>
+        <nav class="user">
+            <h1>{{name}}</h1>
+            <div>￼<a href ="">Log out</a></div>
+        </nav>        
+
+        <div class="filter">       
+            <div class="from">
+                <md-input-container>
+                    <input mdInput [mdDatepicker]="pickerfrom" [(ngModel)]="dateFrom" placeholder="Choose a date">
+                    <button mdSuffix [mdDatepickerToggle]="pickerfrom"></button>
+                </md-input-container>
+                <md-datepicker #pickerfrom></md-datepicker>               
+            </div>
+            <!-- {{dateFrom}} -->
+            <div class="to">
+                 <md-input-container>
+                    <input mdInput [mdDatepicker]="pickerto" [(ngModel)]="dateTo" placeholder="Choose a date">
+                    <button mdSuffix [mdDatepickerToggle]="pickerto"></button>
+                </md-input-container>
+                <md-datepicker #pickerto></md-datepicker> 
+            </div> 
+            <!-- {{dateTo}} -->
+            <p><button md-raised-button (click)="getReportByDate(dateFrom, dateTo)">Get Report!</button></p>
+          
+            <div class="status"> {{status}}</div>       
+        </div>
+    </div>
+</div>
+
+<!-- Summary Report on All Answers -->
+<div class="content">    
+    <summary-report [data]="data" [summary]="summary">Summary report data</summary-report> 
+</div>
+
+<!-- Detail Tables with all Answres -->
+<div class="content">
+    <detail-report [answers]="detail" [summary]="summary">Detail Report data</detail-report>
+ </div>
+
+ <!-- Database Control -->
+<div class="content">
+    <control-db></control-db>
+</div>
+
+
+
+
+

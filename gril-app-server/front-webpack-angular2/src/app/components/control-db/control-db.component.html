@@ -1,0 +1,22 @@
+   
+<div class="control-db flex-row">
+        <div *ngIf="rules"  [className]="(rules[0].access) ? 'db-on' : 'db-off'"> 
+            <h3>Database: {{ (rules[0].access) ? "On" : "Off" }} </h3>        
+        </div>
+        <div class="db-control flex-column">
+            <button (click)="getSchedulefromDb()">Open Database control</button>
+            <button>Database opening</button>
+            <button>Scheduling</button>
+        </div>    
+    </div>
+    <br>
+
+    <div *ngIf="rules" class="scheduler">
+        <div *ngFor="let rule of rules" [className]="(rule.access) ? 'on' : 'off'"> 
+            <div class="rule flex-row">
+                <div class="date">{{formatDate(rule.date)}}</div>
+                <div *ngIf="rule.access != null"  [className]="rule.access" (click)="switchDb(rule)" >{{ (rule.access) ? "On" : "Off"  }}  </div>
+                <div *ngIf="rule.access == null" [className]="rule.access"> update </div>               
+            </div>
+        </div>
+    </div>

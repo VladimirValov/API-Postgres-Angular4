@@ -1,9 +1,0 @@
-{
-  "ignore": [
-    ".git",
-    "node_modules",
-    "public",
-    "front-webpack-angular2"
-  ],
-  "verbose": true
-}

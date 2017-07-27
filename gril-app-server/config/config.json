@@ -1,0 +1,20 @@
+{
+  "development": {
+    "username": "postgres",
+    "password": "null",
+    "database": "grildb",
+    "host": "localhost",
+    "dialect": "postgres",
+    "timezone" : "+03:00",
+    "seederStorage": "sequelize"
+  },
+  "production": {
+    "username": "root",
+    "password": null,
+    "database": "grilapp",
+    "host": "localhost",
+    "dialect": "postgres",
+    "timezone" : "+03:00",
+    "seederStorage": "sequelize"
+  }
+}

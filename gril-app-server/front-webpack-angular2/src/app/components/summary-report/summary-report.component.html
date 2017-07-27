@@ -1,0 +1,103 @@
+<div class="summary flex-column">
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Ensomhed/social angst</div>
+                <div class ="item flex-row ">
+                    <span>1. Hvor ser du dig selv i fællesskabet?</span> 
+                    <div class="state">{{data.society}}</div>
+                </div>
+                <div class="item flex-row ">
+                    <span>2. Hvor ofter føler du dig ensom?</span>
+                    <div class="state">{{data.lonely}}</div>
+                </div>
+            </div>
+            <div class="total">{{ summary[0] }} / 10</div>
+        </div>
+
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Rusmidler</div>
+                <div class ="item flex-row ">
+                    <span>1. Har du drukket dig fuld de sidste 30 dage?</span> 
+                    <div class="state">{{data.drink}}</div>
+                </div>
+                <div class="item flex-row ">
+                    <span>2. Har du røget hash de sidste 30 dage?</span>
+                    <div class="state">{{data.hash}}</div>
+                </div>
+            </div>
+            <div class="total"> {{ summary[1] }} / 10</div>
+        </div>
+
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Præstationsangst</div>
+                <div class ="item flex-row ">
+                    <span>1. Føler du dig god nok?</span> 
+                    <div class="state">{{data.feel}}</div>
+                </div>
+                <div class="item flex-row ">
+                    <span>2. Hvad er dit forhold til karakterer?</span>
+                    <div class="state">{{data.relation}}</div>
+                </div>
+            </div>
+            <div class="total">{{ summary[2] }} / 10</div>
+        </div>
+
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Økonomi</div>
+                <div class ="item flex-row ">
+                    <span>1. Bruger du flere penge end du har?</span> 
+                    <div class="state">{{data.economy}}</div>
+                </div>         
+            </div>
+            <div class="total">{{ summary[3] }} / 10</div>
+        </div>
+
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Sunde fællesskaber</div>
+                <div class ="item flex-row ">
+                    <span>1. Hvor mange “real life” fællesskaber er du med i?</span> 
+                    <div class="state">{{data.community}}</div>
+                </div>
+                <div class="item flex-row ">
+                    <span>2. Hvor meget bidrager du til fællesskabet?</span>
+                    <div class="state">{{data.contribute}}</div>
+                </div>
+                
+            </div>
+            <div class="total"> {{ summary[4] }} / 10</div>
+        </div>
+
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Sundhed</div>
+                <div class ="item flex-row ">
+                    <span>1. Hvor ofte ryger du?</span> 
+                    <div class="state">{{data.smoke}}</div>
+                </div>
+                <div class="item flex-row ">
+                    <span>2. Hvor ofte bruger du snus?</span>
+                    <div class="state">{{data.snus}}</div>
+                </div>
+            </div>
+            <div class="total"> {{ summary[5] }} / 10</div>
+        </div>
+
+        <div class="section flex-row">        
+            <div class="questions">
+                <div class="category">Sex</div>
+                <div class ="item flex-row ">
+                    <span>1. Beskytter du dig hvis du har sex?</span> 
+                    <div class="state">{{data.sex}}</div>
+                </div>
+                <div class="item flex-row ">
+                    <span>2. Hvor god er du til at sige fra, hvis du ikke har lyst?</span>
+                    <div class="state">{{data.deny}}</div>
+                </div>
+            </div>
+            <div class="total"> {{ summary[6] }} / 10</div>
+        </div>
+    </div>
