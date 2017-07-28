@@ -9,8 +9,8 @@ services:
   db:
     image: "postgres"
     ports:
-      - "5430:5432"
-    environment:
-      NODE_ENV: "development"
+      - "5433:5432"
+    # environment:
+    #   NODE_ENV: "development"
       
  
