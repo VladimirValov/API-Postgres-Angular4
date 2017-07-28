@@ -10,7 +10,7 @@ services:
     image: "postgres"
     ports:
       - "5433:5432"
-    # environment:
-    #   NODE_ENV: "development"
+    environment:
+      POSTGRES_PASSWORD: "grill-testpass"
       
  
