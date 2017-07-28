@@ -2,19 +2,18 @@
   "development": {
     "username": "postgres",
     "password": "null",
-    "database": "grildb",
+    "database": "postgres",
     "host": "localhost",
+    "port": 5432,
     "dialect": "postgres",
     "timezone" : "+03:00",
     "seederStorage": "sequelize"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "grilapp",
+    "username": "postgres",
+    "password": "null",
+    "database": "postgres",
     "host": "localhost",
-    "dialect": "postgres",
-    "timezone" : "+03:00",
-    "seederStorage": "sequelize"
+    "dialect": "postgres"
   }
 }

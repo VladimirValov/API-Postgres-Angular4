@@ -1,6 +1,6 @@
 
 # Install Dependencies
-npm install
+npm install:dev
 
 # Start Api Server - Dev, Watch
 npm start
