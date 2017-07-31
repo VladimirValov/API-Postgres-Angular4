@@ -3,5 +3,5 @@
 # Dependency directories
 node_modules
 
-
-config/config.json
+gril-app-server/config/
+*DS_Store

@@ -11,9 +11,12 @@
   },
   "production": {
     "username": "postgres",
-    "password": "null",
+    "password": "grill-testpass",
     "database": "postgres",
-    "host": "localhost",
-    "dialect": "postgres"
+    "host": "db",
+    "port": 5432,
+    "dialect": "postgres",
+    "timezone" : "+03:00",
+    "seederStorage": "sequelize"
   }
 }
