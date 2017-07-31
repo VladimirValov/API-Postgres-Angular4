@@ -25,6 +25,7 @@ import { RadarChartComponent } from './components/radar-chart/radar-chart.compon
 import { SummaryReportComponent } from './components/summary-report/summary-report.component';
 import { DetailReportComponent } from "./components/detail-report/detail-report.component";
 import { ControlDbComponent } from "./components/control-db/control-db.component";
+import { FormLoginComponent } from './components/form-login/form-login.component';
 
 @NgModule({
   imports:      [ 
@@ -46,7 +47,8 @@ import { ControlDbComponent } from "./components/control-db/control-db.component
     RadarChartComponent,
     SummaryReportComponent,
     DetailReportComponent,
-    ControlDbComponent
+    ControlDbComponent,
+    FormLoginComponent
     ],
   bootstrap:    [ AppComponent ]
 })

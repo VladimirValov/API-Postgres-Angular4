@@ -4,12 +4,16 @@ const logger = require('morgan');
 const bodyParser = require('body-parser');
 
 const PORT = process.env.VCAP_APP_PORT || 5000;
+const environment = process.env.NODE_ENV || 'development';
+
+// console.log(environment);
 
 const answersRoute = require('./routes/answers');
 const reportsRoute = require('./routes/reports');
 const controlRoute = require('./routes/control');
 
-const requireOnlineDb = require('./middlewares/requireOnlineDb')
+const requireOnlineDb = require('./middlewares/requireOnlineDb');
+const requireAuth = require('./middlewares/requireAuth');
 
 
 const app = express();
@@ -22,7 +26,7 @@ app.use(express.static(path.join(__dirname, 'front-webpack-angular2/dist')));
 
 
 
-app.use('/answers', requireOnlineDb, answersRoute);
+app.use('/answers', requireAuth, requireOnlineDb, answersRoute);
 app.use('/reports', reportsRoute);
 app.use('/control', controlRoute);
 
@@ -44,7 +48,7 @@ app.use(function(err, req, res, next) {
 });
 
 app.listen(PORT, function () {
-    console.log("partyApp listening on port " + PORT + "!")
+    console.log("GrilApp listening on port " + PORT + "!")
 })
 
 // module.exports = app;
