@@ -8,7 +8,7 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 
 export class ControlDbService {
-    private controlUrl = 'http://localhost:5000/control';
+    private controlUrl = '/control';
 
     constructor(private http: Http ) {}
 

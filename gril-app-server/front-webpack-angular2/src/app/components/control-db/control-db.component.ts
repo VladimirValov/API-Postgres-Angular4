@@ -24,8 +24,7 @@ export class ControlDbComponent implements OnInit {
 
     getSchedulefromDb(): void {
         this.controlDbService.getSchedule().then(rules => {
-            this.rules = buildCalendar(10, rules);
-      
+            this.rules = buildCalendar(10, rules);      
         } )
     }
 
@@ -39,8 +38,7 @@ export class ControlDbComponent implements OnInit {
     }   
 
      ngOnInit(): void {
-        //  getDbStatus()
-        // this.getSchedulefromDb(); 
+        this.getSchedulefromDb(); 
 
     }
 
