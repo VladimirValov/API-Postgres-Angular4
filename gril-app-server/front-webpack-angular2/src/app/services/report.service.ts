@@ -7,9 +7,6 @@ import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class ReportService {
-
-
-
     private reportUrl = '/reports'; 
     // private reportAnswers = 'http://localhost:5000/answers'; 
 
