@@ -33,8 +33,8 @@ export class FormLoginComponent {
              localStorage.setItem('token', token);
 
              console.log('local', localStorage.getItem('token'));
-             
-             if (token) this.router.navigateByUrl('/dashboard');
+
+            //  if (token) this.router.navigateByUrl('/dashboard');
         
         })
     }

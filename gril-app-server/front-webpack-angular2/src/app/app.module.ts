@@ -2,12 +2,7 @@ import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import {FormsModule} from '@angular/forms';
-
-import { ChartsModule } from 'ng2-charts';
-// import 'chart.js/src/chart.js';
-
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-
 import { 
   MdTabsModule,
   MdButtonModule,
@@ -17,14 +12,14 @@ import {
   MdPaginatorModule
   } from '@angular/material';
 
-// import { CdkTableModule } from '@angular/cdk'
+import { ChartsModule } from 'ng2-charts';
+
 import "@angular/material/prebuilt-themes/indigo-pink.css";
 import '../assets/css/styles.css';
 
 import { RouterModule } from '@angular/router'
 
 import { AppComponent }  from './app.component';
-
 import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
 import { SummaryReportComponent } from './components/summary-report/summary-report.component';

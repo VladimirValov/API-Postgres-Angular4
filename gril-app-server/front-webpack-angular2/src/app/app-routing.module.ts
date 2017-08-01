@@ -6,7 +6,7 @@ import { FormLoginComponent }   from './components/form-login/form-login.compone
 
 const routes: Routes = [
     { path: '', redirectTo: '/autorization', pathMatch: 'full' },
-    { path: 'autorization',    component: FormLoginComponent },
+    { path: 'autorization',     component: FormLoginComponent },
     { path: 'dashboard',        component: DashboardComponent }
 ]
 

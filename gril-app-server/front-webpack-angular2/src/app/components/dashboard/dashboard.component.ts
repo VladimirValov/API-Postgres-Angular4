@@ -26,7 +26,10 @@ export class DashboardComponent implements OnInit {
   dateTo = new Date();  
   status: string;
 
-  constructor(private reportService: ReportService, private makeParams: MakeParamsService ) {}
+  constructor(
+    private reportService: ReportService,
+    private makeParams: MakeParamsService
+  ) {}
   
   
   getSummaryReport(from: Date, to: Date) :void {

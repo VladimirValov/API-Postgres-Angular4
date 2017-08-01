@@ -15,6 +15,8 @@ const loginRoute = require('./routes/login');
 
 const requireOnlineDb = require('./middlewares/requireOnlineDb');
 const requireAuth = require('./middlewares/requireAuth');
+const requireAdmin = require('./middlewares/requireAdmin');
+
 
 
 const app = express();
@@ -28,9 +30,10 @@ app.use(express.static(path.join(__dirname, 'front-webpack-angular2/dist')));
 
 
 app.use('/answers', requireAuth, requireOnlineDb, answersRoute);
-app.use('/reports', reportsRoute);
-app.use('/control', controlRoute);
+app.use('/reports', requireAdmin, reportsRoute);
+app.use('/control', requireAdmin, controlRoute);
 app.use('/login', loginRoute);
+
 
 //default route
 app.get('/*', function(req, res, next) {

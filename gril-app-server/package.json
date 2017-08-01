@@ -6,8 +6,8 @@
     "start": "node app.js",
     "dev": "nodemon app.js",
     "install:dev": "npm install && cd front-webpack-angular2 && npm install",
-    "migrate": "node_modules/.bin/sequelize db:migrate --config config/config.json",
-    "seeders": "node_modules/.bin/sequelize db:seed:all --config config/config.json"
+    "migrate": "node_modules/.bin/sequelize db:migrate --config config/database.json",
+    "seed": "node_modules/.bin/sequelize db:seed:all --config config/database.json"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

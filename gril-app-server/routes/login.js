@@ -1,19 +1,21 @@
 const express = require('express');
 const router = express.Router();
 
+const cryptoService = require('../services/cryptoService');
 const jwtService = require('../services/jwtService');
+
+const { User } = require('../models/index');
 
 router.post('/', function(req, res, next) {
     const { name, password } = req.body;
 
-    console.log(name, password);
+   User.findOne({where: { name: name }}).then(user => {
 
-    console.log(jwtService);
+        if (user.password != cryptoService.encrypt(password)) throw new Error('Incorrect password');
 
-    const token = jwtService.sign({name, password});
-
-    res.send({token});
-
+        const token = jwtService.sign(user.dataValues);        
+        res.send({token});
+     })
 })
 
 module.exports = router

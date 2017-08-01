@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const { jwtSecret } = require('../config/security');
+const { jwtSecretKey } = require('../config/security');
 
 function verify (token) {
     console.log(token);
@@ -13,11 +13,9 @@ function verify (token) {
 
 function sign(user) {
 
-    const payload = { name, password } = user;
+    const { name, isAdmin } = user;
 
-    console.log('payload', payload);
-
-    return jwt.sign(payload, jwtSecret)
+    return jwt.sign({ name, isAdmin, date: new Date() }, jwtSecretKey);
 
 }
 
