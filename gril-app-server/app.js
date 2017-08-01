@@ -11,6 +11,7 @@ const environment = process.env.NODE_ENV || 'development';
 const answersRoute = require('./routes/answers');
 const reportsRoute = require('./routes/reports');
 const controlRoute = require('./routes/control');
+const loginRoute = require('./routes/login');
 
 const requireOnlineDb = require('./middlewares/requireOnlineDb');
 const requireAuth = require('./middlewares/requireAuth');
@@ -29,11 +30,18 @@ app.use(express.static(path.join(__dirname, 'front-webpack-angular2/dist')));
 app.use('/answers', requireAuth, requireOnlineDb, answersRoute);
 app.use('/reports', reportsRoute);
 app.use('/control', controlRoute);
+app.use('/login', loginRoute);
+
+//default route
+app.get('/*', function(req, res, next) {
+    return res.redirect('/');
+});  
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
-  const err = new Error('Not Found');
-  err.status = 404;
+app.use(function(err, req, res, next) {
+  // const err = new Error('Not Found');
+  // err.status = 404;
+  console.log(err);
   next(err);
 });
 

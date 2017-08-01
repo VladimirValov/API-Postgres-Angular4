@@ -19,13 +19,21 @@ import {
 
 // import { CdkTableModule } from '@angular/cdk'
 import "@angular/material/prebuilt-themes/indigo-pink.css";
+import '../assets/css/styles.css';
+
+import { RouterModule } from '@angular/router'
 
 import { AppComponent }  from './app.component';
+
+import { DashboardComponent } from './components/dashboard/dashboard.component'
 import { RadarChartComponent } from './components/radar-chart/radar-chart.component';
 import { SummaryReportComponent } from './components/summary-report/summary-report.component';
 import { DetailReportComponent } from "./components/detail-report/detail-report.component";
 import { ControlDbComponent } from "./components/control-db/control-db.component";
 import { FormLoginComponent } from './components/form-login/form-login.component';
+
+
+import { AppRoutingModule } from './app-routing.module'
 
 @NgModule({
   imports:      [ 
@@ -40,15 +48,18 @@ import { FormLoginComponent } from './components/form-login/form-login.component
     MdDatepickerModule,
     MdNativeDateModule,
     MdInputModule,
-    MdPaginatorModule
+    MdPaginatorModule,
+
+    AppRoutingModule
     ],
   declarations: [ 
     AppComponent,
+    FormLoginComponent,
+    DashboardComponent,
     RadarChartComponent,
     SummaryReportComponent,
     DetailReportComponent,
-    ControlDbComponent,
-    FormLoginComponent
+    ControlDbComponent    
     ],
   bootstrap:    [ AppComponent ]
 })
