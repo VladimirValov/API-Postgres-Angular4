@@ -1,7 +1,9 @@
-<a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+<!-- <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a> -->
 <div class="form-login">    
     <div class="title"> Authorization</div>
     <form #formLogin="ngForm" (ngSubmit)="onSubmit()" novalidate>
+
+        <div *ngIf="message" class="alert alert-danger"> {{message}}  </div>
 
         <div class="form-group">
             <!-- <label for="name">Name</label> -->

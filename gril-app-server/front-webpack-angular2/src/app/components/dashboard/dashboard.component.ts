@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
+import { AuthService } from '../../services/auth.service' 
 import { ReportService } from '../../services/report.service';
 import { MakeParamsService } from '../../services/makeParams.service';
 
@@ -27,9 +28,14 @@ export class DashboardComponent implements OnInit {
   status: string;
 
   constructor(
+    public authService: AuthService,
     private reportService: ReportService,
     private makeParams: MakeParamsService
   ) {}
+
+  logout() :void {
+    this.authService.logout();
+  }
   
   
   getSummaryReport(from: Date, to: Date) :void {

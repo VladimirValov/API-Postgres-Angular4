@@ -15,7 +15,7 @@ function sign(user) {
 
     const { name, isAdmin } = user;
 
-    return jwt.sign({ name, isAdmin, date: new Date() }, jwtSecretKey);
+    return jwt.sign({ name, isAdmin}, jwtSecretKey);
 
 }
 

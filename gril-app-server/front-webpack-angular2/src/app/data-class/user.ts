@@ -3,7 +3,7 @@ export class User {
     constructor (
         name: string,
         password: string,
-        admin: boolean,
+        isAdmin: boolean,
         token: string 
     ) {}
 }
