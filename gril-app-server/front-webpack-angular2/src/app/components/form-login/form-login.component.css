@@ -1,3 +1,7 @@
+
+* {
+    transition: all 1s;
+}
 .form-login {
   width: 290px;
   position: absolute;
