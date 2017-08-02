@@ -3,5 +3,6 @@
 # Dependency directories
 node_modules
 
-gril-app-server/config/
+# gril-app-server/config/
 *DS_Store
+*.log
