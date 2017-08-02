@@ -11,6 +11,7 @@ router.post('/', function(req, res, next) {
 
     User.findOne({where: { name: name }}).then(user => {
 
+        
         // if (!user) throw new Error ('Unknow User');
         if (!user) return res.status(401).send ('Unknow User');
         
@@ -22,6 +23,8 @@ router.post('/', function(req, res, next) {
         if (user.password != cryptoService.encrypt(password)) return res.status(401).send('Incorrect password');
 
         const token = jwtService.sign(user.dataValues);        
+
+        console.log(token);
 
         res.send({
             isAdmin: user.isAdmin,

@@ -1,6 +1,6 @@
 const jwt = require('jsonwebtoken')
 
-const { jwtSecret } = require('../config/security');
+const { jwtSecretKey } = require('../config/security');
 
 module.exports = function (req, res, next) {
 
@@ -9,11 +9,11 @@ module.exports = function (req, res, next) {
     console.log(token);
 
 
-    jwt.verify(token, jwtSecret, (err, decoded) => {
+    jwt.verify(token, jwtSecretKey, (err, decoded) => {
         console.log(decoded);
 
         if(err) return res.status(401).send("Unknown Token");
-
+        
         next();
     })
 }

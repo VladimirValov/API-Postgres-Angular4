@@ -13,18 +13,19 @@ export class AuthService {
 
     constructor(private http: Http) {}  
     
-    localUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : null;
+    localUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).user : null;
 
-    token:string =          this.localUser ? this.localUser.user.token : "";
-    isLoggedAdmin:boolean = this.localUser ? this.localUser.user.isAdmin : false;   
+    token:string =          this.localUser ? this.localUser.token : "";
+    isLoggedAdmin:boolean = this.localUser ? this.localUser.isAdmin : false;   
 
 
 
-    setUser(user: any) :void {
+    setUser(user: any) :void {       
 
-        localStorage.setItem('user', JSON.stringify({user}) );
+        localStorage.setItem('user', JSON.stringify(user) );
         this.isLoggedAdmin = user.isAdmin;
-        this.token = user.token;      
+        this.token = user.token;          
+
     }
 
 
@@ -32,11 +33,9 @@ export class AuthService {
 
         return this.http.post(this.loginUrl, user).toPromise().then(response => {
             console.log(response);
-            this.localUser = response.json();            
+            this.localUser = response.json();  
 
             this.setUser(this.localUser );
-
-            this.setUser(this.localUser.token );
 
             return this.isLoggedAdmin;
 
