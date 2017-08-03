@@ -2,6 +2,10 @@
 const { ControlDb } = require('../models/index');
 
 
+function getStatusDB() {
+    return findRuleByDate( new Date() ).then(rule => rule );
+}
+
 function addRule(date, access = true) {
     // const date1 = new Date(date).setUTCHours(0, 0, 0);
     // const date2 = new Date(date).setUTCHours(23, 59, 59);
@@ -14,7 +18,7 @@ function addRule(date, access = true) {
 
 
 function deleteRule(date) {  
-    return findRuleByDate(date).then(rule => (rule) ? rule.destroy() : "No rules for this date.")
+    return findRuleByDate( new Date(date) ).then(rule => (rule) ? rule.destroy() : "No rules for this date.")
 }
 
 
@@ -31,5 +35,5 @@ function findRuleByDate(date) {
 }
 
 
-module.exports = {  addRule, deleteRule, findRules, findRuleByDate }
+module.exports = {  addRule, deleteRule, findRules, getStatusDB }
 

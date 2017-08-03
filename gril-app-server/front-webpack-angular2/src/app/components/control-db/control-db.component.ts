@@ -12,38 +12,36 @@ import { ControlDbService } from '../../services/control-db.service';
 
 export class ControlDbComponent implements OnInit {
    
-    statusDb: boolean = false;
+    statusDb = {date: new Date(), access: false};
     rules: Schedule[];  
     calendar: Date[]; 
 
     constructor (private controlDbService: ControlDbService) {}
-
-    // getDbStatus() {
-
-    // }
+    
+    getDbStatus() :void {
+        this.controlDbService.getDbStatus().then(rule => {
+            console.log(rule);
+            this.statusDb.access = (rule) ? true : false ;
+        });
+    }
 
     getSchedulefromDb(): void {
         this.controlDbService.getSchedule().then(rules => {
             this.rules = buildCalendar(10, rules);      
-        } )
+        });
     }
 
     switchDb (rule: any): void{
         this.controlDbService.switchDb(rule).then(response => rule.access = response.access );
     }
 
-
     formatDate(date: Date) {
         return new Date(date).toLocaleString('ru', {year: 'numeric', day:"2-digit", month:'2-digit'})
-    }   
-
-    getDbStatus() {
-        this.controlDbService.getDbStatus( new Date() );
     }
 
-     ngOnInit(): void {
-        this.getSchedulefromDb(); 
 
+    ngOnInit(): void {
+        this.getDbStatus() 
     }
 
 }
@@ -65,7 +63,7 @@ function buildCalendar (days:number, rules: Schedule[]) :any {
         const arr:Date[] = [];
         let cur = new Date();
 
-        arr.push(new Date());
+        // arr.push(new Date());
 
         for (let i = 0; i < days; i++ ) { 
             arr.push(new Date(cur.setDate(cur.getDate() + 1)));

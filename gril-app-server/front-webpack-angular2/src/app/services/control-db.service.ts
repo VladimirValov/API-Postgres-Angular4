@@ -15,8 +15,8 @@ export class ControlDbService {
 
     constructor(private http: Http, private httpClient: HttpClient ) {}
 
-    getDbStatus(date: Date) :Promise<Schedule> {
-        return this.httpClient.get<Schedule>('/control').toPromise()     
+    getDbStatus() :Promise<Schedule> {
+        return this.httpClient.get<Schedule>(this.controlUrl + '/now').toPromise()     
     }
 
     getSchedule( from?: Date, to?: Date) : Promise<Schedule[]> {
@@ -28,7 +28,11 @@ export class ControlDbService {
             date: rule.date,
             access: !rule.access
         }
-        return (rule.access)    ? this.httpClient.delete(this.controlUrl, newRule ).toPromise().then(() => newRule)
+
+        const params = new HttpParams().set('date', rule.date.toString())
+
+
+        return (rule.access)    ? this.httpClient.delete(this.controlUrl, {params}  ).toPromise().then(() => newRule)
                                 : this.httpClient.post(this.controlUrl, newRule).toPromise();
     }
 }

@@ -1,16 +1,18 @@
    
 <div class="control-db flex-row">
-        <div *ngIf="rules"  [className]="(rules[0].access) ? 'db-on' : 'db-off'"> 
-            <h3>Database: {{ (rules[0].access) ? "On" : "Off" }} </h3>        
+        <div [className]="(statusDb.access) ? 'db-on' : 'db-off'"> 
+            <h3>Database: {{ (statusDb.access) ? "On" : "Off" }} </h3>        
         </div>
         <div class="db-control flex-column">
-            <button (click)="getDbStatus()">Open the Database</button>
-            <button>Close the Database</button>
-            <button>Scheduling</button>
+            <button (click)="switchDb(statusDb)">{{ (statusDb.access) ? "Close" : "Open" }} Database</button>
+            
+            <!-- <button (click)="switchDb(statusDb)">Close the Database</button> -->
+
+            <button *ngIf="!rules" (click)="getSchedulefromDb()" >Scheduler</button>
+            <button *ngIf="rules" (click)="rules=null" >Hide Scheduler</button>
+             <!-- {{statusDb}}  -->
         </div>    
     </div>
-    <br>
-
     <div *ngIf="rules" class="scheduler">
         <div *ngFor="let rule of rules" [className]="(rule.access) ? 'on' : 'off'"> 
             <div class="rule flex-row">

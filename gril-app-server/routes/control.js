@@ -7,6 +7,12 @@ const controlDbService = require('../services/controlDbService');
 
 
 
+router.get('/now', function(req, res, next) {
+    const {date, access} = req.body;
+    controlDbService.getStatusDB().then(result => res.send(result)).catch(err => next(err));
+});  
+
+
 router.get('/', function(req, res, next) {
    const { limit } = req.query
 
@@ -15,8 +21,6 @@ router.get('/', function(req, res, next) {
    controlDbService.findRules(limit).then(result => res.send(result)).catch(err => next(err))
 });  
 
-
-
 router.post('/', function(req, res, next) {
     const {date, access} = req.body;
     controlDbService.addRule(date, access).then(result => res.send(result)).catch(err => next(err));
@@ -24,8 +28,9 @@ router.post('/', function(req, res, next) {
 
 
 router.delete('/', function(req, res, next) {
-    const {date, access} = req.body; 
-    controlDbService.deleteRule(date).then(result => res.status(204).send(result)).catch(err => next(err));  
+    const { date } = req.query; 
+    
+    controlDbService.deleteRule(date) .then(result => res.status(204).send(result)).catch(err => next(err));  
  });
 
 module.exports = router;
