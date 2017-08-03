@@ -1,5 +1,7 @@
-import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
+import { Injectable }       from '@angular/core';
+import { Headers, Http }    from '@angular/http';
+
+import { HttpClient, HttpHeaders }                 from '@angular/common/http'
 
 import { Answer } from '../data-class/answer';
 
@@ -11,11 +13,12 @@ export class ReportService {
     // private reportAnswers = 'http://localhost:5000/answers'; 
 
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, private httpClient: HttpClient) { }
 
 
     getSummaryReport(from?: Date, to?: Date): Promise<any> {   
         console.log("getSummaryReport",from, to);
+
         return this.http.get(this.reportUrl + '/summary', {params: {from, to} }).toPromise().then(response => response.json());
     }
         

@@ -9,6 +9,9 @@ const controlDbService = require('../services/controlDbService');
 
 router.get('/', function(req, res, next) {
    const { limit } = req.query
+
+   console.log('TOKEN ', req.headers.authorization);
+
    controlDbService.findRules(limit).then(result => res.send(result)).catch(err => next(err))
 });  
 

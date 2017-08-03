@@ -37,6 +37,10 @@ export class ControlDbComponent implements OnInit {
         return new Date(date).toLocaleString('ru', {year: 'numeric', day:"2-digit", month:'2-digit'})
     }   
 
+    getDbStatus() {
+        this.controlDbService.getDbStatus( new Date() );
+    }
+
      ngOnInit(): void {
         this.getSchedulefromDb(); 
 

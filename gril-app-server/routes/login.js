@@ -16,7 +16,7 @@ router.post('/', function(req, res, next) {
         if (!user) return res.status(401).send ('Unknow User');
         
         if (!user.isAdmin) {
-            // return res.status(401).send ('User not Admin')
+            return res.status(401).send ('User not Admin')
         };
 
         // if (user.password != cryptoService.encrypt(password)) throw new Error('Incorrect password');

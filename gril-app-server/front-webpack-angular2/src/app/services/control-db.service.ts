@@ -1,8 +1,11 @@
-import { Injectable } from '@angular/core';
-import { RequestOptions, Headers, Http } from '@angular/http';
+import { Injectable }                       from '@angular/core';
+import { RequestOptions, Headers, Http }    from '@angular/http';
+import { HttpClient, HttpParams }           from '@angular/common/http'
+import { AuthService }                      from './auth.service'
+import { Schedule }                         from '../data-class/schedule';
 
-import { Schedule } from '../data-class/schedule';
-
+// import {Observable}                         from 'rxjs/Observable';
+// import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -10,28 +13,24 @@ import 'rxjs/add/operator/toPromise';
 export class ControlDbService {
     private controlUrl = '/control';
 
-    constructor(private http: Http ) {}
+    constructor(private http: Http, private httpClient: HttpClient ) {}
 
-    getDbStatus() {
-         return this.http.get(this.controlUrl + '/now').toPromise().then(response => response.json())
+    getDbStatus(date: Date) :Promise<Schedule> {
+        return this.httpClient.get<Schedule>('/control').toPromise()     
     }
 
-    getSchedule( from?: Date, to?: Date) : Promise<any> {
-        return this.http.get(this.controlUrl).toPromise().then(response => response.json())
+    getSchedule( from?: Date, to?: Date) : Promise<Schedule[]> {
+        return this.httpClient.get<Schedule[]>(this.controlUrl).toPromise()
     }
 
-    switchDb(rule: any ) :Promise<any> {
-
+    switchDb(rule: Schedule ) :Promise<any> {
         const newRule: any = {
             date: rule.date,
             access: !rule.access
         }
-
-        return (rule.access) 
-            ? this.http.delete(this.controlUrl, new RequestOptions({body: newRule}) ).toPromise().then(() => newRule)
-            : this.http.post(this.controlUrl, newRule).toPromise().then(response => response.json());
+        return (rule.access)    ? this.httpClient.delete(this.controlUrl, newRule ).toPromise().then(() => newRule)
+                                : this.httpClient.post(this.controlUrl, newRule).toPromise();
     }
-
 }
 
 

@@ -20,11 +20,11 @@ export class FormLoginComponent implements OnInit {
 
      ngOnInit(): void {
 
-        console.log("FormLoginComponent"); 
-        console.log("local-User ", localStorage.getItem('user'));
-        console.log("local-User ", this.authService.localUser);
-        console.log('local-token', this.authService.token);
-        console.log('local-isAdmin', this.authService.isLoggedAdmin);
+        // console.log("FormLoginComponent"); 
+        // console.log("local-User ", localStorage.getItem('user'));
+        // console.log("local-User ", this.authService.localUser);
+        // console.log('local-token', this.authService.token);
+        // console.log('local-isAdmin', this.authService.isLoggedAdmin);
 
          if (this.authService.isLoggedAdmin) this.router.navigateByUrl('/dashboard');    
     }

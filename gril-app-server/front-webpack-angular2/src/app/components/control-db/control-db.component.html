@@ -4,8 +4,8 @@
             <h3>Database: {{ (rules[0].access) ? "On" : "Off" }} </h3>        
         </div>
         <div class="db-control flex-column">
-            <button (click)="getSchedulefromDb()">Open Database control</button>
-            <button>Database opening</button>
+            <button (click)="getDbStatus()">Open the Database</button>
+            <button>Close the Database</button>
             <button>Scheduling</button>
         </div>    
     </div>
