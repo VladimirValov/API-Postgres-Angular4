@@ -11,10 +11,9 @@ import 'rxjs/add/operator/toPromise';
 export class AuthService {
     private loginUrl = '/login';
 
-    constructor(private http: Http) {}  
+    constructor(private http: Http) {}      
     
-    localUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')).user : null;
-
+    localUser =             JSON.parse(localStorage.getItem('user'));
     token:string =          this.localUser ? this.localUser.token : "";
     isLoggedAdmin:boolean = this.localUser ? this.localUser.isAdmin : false;   
 
@@ -25,7 +24,6 @@ export class AuthService {
         localStorage.setItem('user', JSON.stringify(user) );
         this.isLoggedAdmin = user.isAdmin;
         this.token = user.token;          
-
     }
 
 
