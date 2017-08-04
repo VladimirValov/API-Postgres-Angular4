@@ -1,4 +1,4 @@
 {
-    "jwtSecretKey" : "secret",
+    "jwtSecretKey" : "secretsecretsecretsecretsec123123ret",
      "passSecretKey" : "password"
 }

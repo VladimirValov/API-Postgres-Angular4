@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, OnChanges} from '@angular/core';
 import {PageEvent} from '@angular/material';
 
-import { MakeParamsService } from '../../services/makeParams.service' 
+import { MakeParams } from '../../utils/make-params' 
 import { Answer } from '../../data-class/answer';
 
 
@@ -9,7 +9,7 @@ import { Answer } from '../../data-class/answer';
     selector: 'detail-report',
     templateUrl: './detail-report.component.html',
     styleUrls: ['./detail-report.component.css'],
-    providers: [ MakeParamsService ]
+    providers: [ MakeParams ]
 })
 
 export class DetailReportComponent {    
@@ -34,15 +34,15 @@ export class DetailReportComponent {
         this.end = this.begin + params.pageSize
     }      
 
-    constructor(private makeParamsService: MakeParamsService ) {}   
+    constructor(private MakeParams: MakeParams ) {}   
 
 
     showSelected(answer:Answer) :void {
         console.log(answer); 
         this.answerSelected = answer;
 
-        this.summarySelected = this.makeParamsService.calcSummary(answer);
-        this.radarChartData = this.makeParamsService.dataChart (this.summary, this.summarySelected);     
+        this.summarySelected = this.MakeParams.calcSummary(answer);
+        this.radarChartData = this.MakeParams.dataChart (this.summary, this.summarySelected);     
     }
 
     hideSelected():void {

@@ -4,11 +4,11 @@
         <table>
              <tr>
                 <th>№</th>  
-                <th colspan="2">Social</th>      
-                <th colspan="2">Rusmidler</th>
                 <th colspan="2">Præstationsangst</th>
                 <th>Økonomi</th>
+                <th colspan="2">Ensomhed</th>                
                 <th colspan="2">Fællesskaber</th>
+                <th colspan="2">Rusmidler</th>
                 <th colspan="2">Sundhed</th>
                 <th colspan="2">Sex</th>
             <tr>
@@ -28,18 +28,25 @@
                 <td>13</td>        
             </tr>
             <tr *ngFor="let answer of answers.slice(begin, end); let i = index" (click)="showSelected(answer)"  [className]="(answer == answerSelected) ? 'selected' : ''" >
-                <td>{{i + begin + 1}}  </td>    
-                <td>{{answer.society}}</td>   
-                <td>{{answer.lonely}}</td>     
-                <td>{{answer.drink}}</td>     
-                <td>{{answer.hash}}</td>     
+                <td>{{i + begin + 1}}  </td>  
+
                 <td>{{answer.feel}}</td>     
-                <td>{{answer.relation}}</td>     
-                <td>{{answer.economy}}</td>     
-                <td>{{answer.community}}</td>     
-                <td>{{answer.contribute}}</td>     
+                <td>{{answer.relation}}</td>   
+                
+                <td>{{answer.economy}}</td> 
+
+                <td>{{answer.society}}</td>   
+                <td>{{answer.lonely}}</td>  
+         
+                <td>{{answer.community}}</td>
+                <td>{{answer.contribute}}</td>    
+
+                <td>{{answer.drink}}</td>     
+                <td>{{answer.hash}}</td>  
+
                 <td>{{answer.smoke}}</td>
-                <td>{{answer.snus}}</td>     
+                <td>{{answer.snus}}</td>
+
                 <td>{{answer.sex}}</td>     
                 <td>{{answer.deny}}</td>       
             </tr>

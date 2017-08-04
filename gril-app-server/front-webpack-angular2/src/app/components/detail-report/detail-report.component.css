@@ -41,12 +41,12 @@ td {
     font-size: 14px;
 }
 
-tr:nth-child(2n+4) {
+tr:nth-child(2n+3) {
     background: #EEE;
 }
 
 
-td:nth-child(-2n+7), td:nth-child(2n+8), th:nth-child(-2n+7), th:nth-child(2n+8)  {
+td:nth-child(-2n+3), td:nth-child(2n+4), th:nth-child(-2n+3), th:nth-child(2n+7)  {
     border-right: 1px solid #999;
 }
  

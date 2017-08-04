@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-
+import { Http } from '@angular/http';
 import { User } from '../data-class/user';
 
 import 'rxjs/add/operator/toPromise';
@@ -10,6 +9,9 @@ import 'rxjs/add/operator/toPromise';
 
 export class AuthService {
     private loginUrl = '/login';
+
+
+// ! HttpClient Causes a cyclic dependency error ,becouse use http
 
     constructor(private http: Http) {}      
     

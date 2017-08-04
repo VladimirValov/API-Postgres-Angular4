@@ -2,7 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 
 import { AuthService } from '../../services/auth.service' 
 import { ReportService } from '../../services/report.service';
-import { MakeParamsService } from '../../services/makeParams.service';
+import { MakeParams } from '../../utils/make-params';
+
 
 import { Answer } from '../../data-class/answer';
 
@@ -11,7 +12,7 @@ import { Answer } from '../../data-class/answer';
   templateUrl:'./dashboard.component.html',
   providers: [ 
     ReportService,
-    MakeParamsService
+    MakeParams
   ]
 })
 
@@ -23,15 +24,19 @@ export class DashboardComponent implements OnInit {
   radarChartData: any;
   summary: number[] = [];
   detail: Answer[];
+
   dateFrom = new Date();
   dateTo = new Date();  
+  maxDate= new Date();
+
   status: string;
 
   constructor(
     public authService: AuthService,
     private reportService: ReportService,
-    private makeParams: MakeParamsService
-  ) {}
+    private makeParams: MakeParams,  
+  ) { }
+
 
   logout() :void {
     this.authService.logout();
@@ -54,7 +59,7 @@ export class DashboardComponent implements OnInit {
 
     this.reportService.getDetailReport(from, to).then(report => {       
           this.detail = report; 
-        })
+    })
   }
 
 

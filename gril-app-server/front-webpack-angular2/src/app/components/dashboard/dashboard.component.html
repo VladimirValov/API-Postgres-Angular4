@@ -14,26 +14,28 @@
         <div class="filter">       
             <div class="from">
                 <md-input-container>
-                    <input mdInput [mdDatepicker]="pickerfrom" [(ngModel)]="dateFrom" placeholder="Choose a date">
+                    <input mdInput  [mdDatepicker]="pickerfrom"  [max]='dateTo'   [(ngModel)]="dateFrom" placeholder="Data from">
                     <button mdSuffix [mdDatepickerToggle]="pickerfrom"></button>
                 </md-input-container>
                 <md-datepicker #pickerfrom></md-datepicker>               
             </div>
-            <!-- {{dateFrom}} -->
-            <div class="to">
+             <!-- {{dateFrom}}  -->
+            <div class="to"> 
                 <md-input-container>
-                    <input mdInput [mdDatepicker]="pickerto" [(ngModel)]="dateTo" placeholder="Choose a date">
+                    <input mdInput [mdDatepicker]="pickerto" [min]="dateFrom" [max]='maxDate' [(ngModel)]="dateTo" placeholder="Data to">
                     <button mdSuffix [mdDatepickerToggle]="pickerto"></button>
                 </md-input-container>
-                <md-datepicker #pickerto></md-datepicker> 
+                <md-datepicker #pickerto></md-datepicker>   
             </div> 
-            <!-- {{dateTo}} -->
+              <!-- {{dateTo}}   -->
             <p><button md-raised-button (click)="getReportByDate(dateFrom, dateTo)">Get Report!</button></p>
             <br>
             <div class="status"> {{status}}</div>       
         </div>
     </div>
 </div>
+
+<!-- {{detail}} -->
 
 <!-- Summary Report on All Answers -->
 <div *ngIf='detail' class="content">    

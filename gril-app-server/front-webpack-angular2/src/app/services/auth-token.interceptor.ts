@@ -15,15 +15,14 @@ export class TokenInterceptor implements HttpInterceptor {
 
         const tokenReq = req.clone({ headers: new HttpHeaders().set('Authorization', `Bearer ${ this.authService.token }`) });
         
-        console.log("TokenInterceptor set Header: Authorization: Token ");
+        console.log("TokenInterceptor set Header: Authorization: Token " + req.url);
         
         return next.handle(tokenReq);
     }
 }
 
-
-// if there is a headers
-
+// 
+// if there is header
 // const tokenReq = req.clone({
 //     setHeaders: {              
 //         Authorization: `Bearer ${this.auth.getToken()}`,

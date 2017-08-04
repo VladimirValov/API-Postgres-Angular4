@@ -1,5 +1,5 @@
 import { Injectable }                       from '@angular/core';
-import { RequestOptions, Headers, Http }    from '@angular/http';
+// import { RequestOptions, Headers, Http }    from '@angular/http';
 import { HttpClient, HttpParams }           from '@angular/common/http'
 import { AuthService }                      from './auth.service'
 import { Schedule }                         from '../data-class/schedule';
@@ -13,7 +13,7 @@ import 'rxjs/add/operator/toPromise';
 export class ControlDbService {
     private controlUrl = '/control';
 
-    constructor(private http: Http, private httpClient: HttpClient ) {}
+    constructor( private httpClient: HttpClient ) {}
 
     getDbStatus() :Promise<Schedule> {
         return this.httpClient.get<Schedule>(this.controlUrl + '/now').toPromise()     

@@ -9,11 +9,7 @@ export class AuthGuard implements CanActivate {
 
     constructor(private authService: AuthService) {}
 
-    canActivate() :boolean {
-        // console.log(" AuthGuard   "); 
-        // console.log("local-User ", localStorage.getItem('user'));
-        // return true;
-        // console.log("this.authService.isLoggedAdmin", this.authService.isLoggedAdmin );
+    canActivate() :boolean {  
         return this.authService.isLoggedAdmin;
     }
 }

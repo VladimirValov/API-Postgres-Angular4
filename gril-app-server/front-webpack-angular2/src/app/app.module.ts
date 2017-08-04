@@ -1,4 +1,6 @@
-import { NgModule }       from '@angular/core';
+import { NgModule,
+  //  LOCALE_ID
+   }                      from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { ChartsModule }   from 'ng2-charts';
@@ -14,13 +16,18 @@ import "@angular/material/prebuilt-themes/indigo-pink.css";
 import '../assets/css/styles.css';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { 
-  MdTabsModule,
+  // MdTabsModule,
   MdButtonModule,
   MdDatepickerModule,
   MdNativeDateModule,
+  // NativeDateAdapter,
+  DateAdapter,
+  // MD_DATE_FORMATS,
   MdInputModule,
   MdPaginatorModule
   } from '@angular/material';
+
+import {CustomDateAdapter} from './utils/custom-date-adapter';
 
 //Component
 import { AppComponent }           from './app.component';
@@ -35,6 +42,18 @@ import { FormLoginComponent }     from './components/form-login/form-login.compo
 import { RouterModule }     from '@angular/router'
 import { AppRoutingModule } from './app-routing.module'
 
+// const MY_DATE_FORMATS = {
+// parse: {
+//   dateInput: { day: 'numeric', month: 'short', year: 'numeric' }
+// },
+// display: {
+//   dateInput: 'input',
+//   monthYearLabel: { year: 'numeric', month: 'long' },
+//   dateA11yLabel: { year: 'numeric', month: 'long', day: 'numeric' },
+//   monthYearA11yLabel: { year: 'numeric', month: 'long' }
+// }
+// };
+
 
 @NgModule({
   imports:      [ 
@@ -45,10 +64,11 @@ import { AppRoutingModule } from './app-routing.module'
     BrowserAnimationsModule,
     ChartsModule,
 
-    MdTabsModule,
+    // MdTabsModule,
     MdButtonModule,
     MdDatepickerModule,
     MdNativeDateModule,
+    
     MdInputModule,
     MdPaginatorModule,
 
@@ -63,12 +83,18 @@ import { AppRoutingModule } from './app-routing.module'
     DetailReportComponent,
     ControlDbComponent    
     ],
-  providers: [ {
+  providers: [
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true
-    } ],
+    },
+    // {provide: LOCALE_ID, useValue: 'ru-RU'},
+    {provide: DateAdapter, useClass: CustomDateAdapter},
+    // {provide: MD_DATE_FORMATS, useValue: MY_DATE_FORMATS},
+  ],
   bootstrap:    [ AppComponent ]
 })
+
 
 export class AppModule { }

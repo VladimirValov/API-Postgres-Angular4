@@ -15,7 +15,8 @@ function sign(user) {
 
     const { name, isAdmin } = user;
 
-    return jwt.sign({ name, isAdmin}, jwtSecretKey);
+    return jwt.sign({name, isAdmin}, jwtSecretKey);
+    // return jwt.sign({ name, isAdmin}, jwtSecretKey, { expiresIn: '1 day' });
 
 }
 
