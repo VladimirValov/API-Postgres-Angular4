@@ -10,6 +10,7 @@ import { HttpModule }         from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { HTTP_INTERCEPTORS }  from '@angular/common/http';
 import { TokenInterceptor }   from './services/auth-token.interceptor';
+import { ErrorInterceptor }   from './services/auth-error.interceptor';
 
 //Style + Material Component
 import "@angular/material/prebuilt-themes/indigo-pink.css";
@@ -87,6 +88,11 @@ import { AppRoutingModule } from './app-routing.module'
     {
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: ErrorInterceptor,
       multi: true
     },
     // {provide: LOCALE_ID, useValue: 'ru-RU'},
