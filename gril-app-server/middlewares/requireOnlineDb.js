@@ -1,9 +1,9 @@
-const { findRuleByDate } = require('../services/controlDbService');
+const { getStatusDB } = require('../services/controlDbService');
 
 
 module.exports = function(req, res, next) {
 
-    findRuleByDate(new Date()).then( rule => {
+    getStatusDB().then( rule => {
         return (rule) ? next() : res.status(401).send("Database Closed");
     })
 }
