@@ -23,7 +23,7 @@ function deleteRule(date) {
 
 
 function findRules(limit = 10) {
-   return ControlDb.findAll({limit: limit});
+   return ControlDb.findAll({order: [['date1', 'DESC']], limit: limit});
 }
 
 function findRuleByDate(date) {
