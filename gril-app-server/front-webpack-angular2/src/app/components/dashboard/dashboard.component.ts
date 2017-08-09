@@ -59,6 +59,7 @@ export class DashboardComponent implements OnInit {
 
     this.reportService.getDetailReport(from, to).then(report => {       
           this.detail = report; 
+          console.log('report', report);
     })
   }
 

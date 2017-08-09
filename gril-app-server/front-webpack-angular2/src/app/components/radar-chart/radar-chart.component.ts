@@ -12,7 +12,15 @@ export class RadarChartComponent  {
 
   radarChartType:string = 'radar'; 
 
-  radarChartLabels:string[] = ['Præstationsangst',  'Økonomi', 'Ensomhed/social angst', 'Sunde fællesskaber', 'Rusmidler', 'Sundhed', 'Sex'];
+  radarChartLabels:string[] = [
+    'Præstationsangst', " ",
+    'Økonomi', " ",
+    'Ensomhed/social angst', " ", 
+    'Sunde fællesskaber', " ", 
+    'Rusmidler', " ",
+    'Sundhed', " ",
+    'Sex', " "
+  ]; 
   
   public radarChartOptions:any = {
     legend: { display: false, fullWidth: false },
@@ -25,13 +33,13 @@ export class RadarChartComponent  {
       backgroundColor: 'rgba(255, 255, 255, 0)'
     },
     {
-      borderColor: 'rgba(54, 162, 235, 1)',
-      backgroundColor: 'rgba(54, 162, 235, 0.2)'
-    },
-    {
       borderColor: 'rgba(252, 137, 18, 1)',
       backgroundColor: 'rgba(252, 137, 18, 0.2)'
-    }
+    },
+    {
+      borderColor: 'rgba(54, 162, 235, 1)',
+      backgroundColor: 'rgba(54, 162, 235, 0.2)'
+    }      
   ];
 
   // events

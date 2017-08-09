@@ -12,13 +12,18 @@ import { Answer } from '../../data-class/answer';
     providers: [ MakeParams ]
 })
 
-export class DetailReportComponent {    
+export class DetailReportComponent implements OnChanges {    
+   
     @Input() answers: Answer[];
     @Input() summary: number[];  
 
     answerSelected: Answer;
     summarySelected:number[];
     radarChartData: any;
+
+    ngOnChanges(): void {
+       this.answerSelected = null;       
+    }   
 
     //paginator
     length = 100;
