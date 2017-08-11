@@ -18,7 +18,7 @@ export class RadarChartComponent  {
     'Ensomhed/social angst', " ", 
     'Sunde fællesskaber', " ", 
     'Rusmidler', " ",
-    'Sundhed', " ",
+    'Rygning/snus', " ",
     'Sex', " "
   ]; 
   

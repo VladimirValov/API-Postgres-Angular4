@@ -19,7 +19,7 @@ function getAvgReport(from, to) {
 
 //Detail Report
 function getAnswers(from, to) {       
-    return Answer.findAll({where: {createdAt: {$gte: formatDate(from), $lte: formatDate(to)} }})    
+    return Answer.findAll({where: {createdAt: {$gte: formatDate(from), $lte: formatDate(to)} },order: [['createdAt', 'DESC']]})    
 }
 
 
