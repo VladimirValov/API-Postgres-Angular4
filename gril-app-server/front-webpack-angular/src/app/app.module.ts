@@ -1,20 +1,17 @@
-import { NgModule,
-  //  LOCALE_ID
-   }                      from '@angular/core';
+import { NgModule}        from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
 import { FormsModule }    from '@angular/forms';
 import { ChartsModule }   from 'ng2-charts';
 
 //Http 
 import { HttpModule }         from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule }   from '@angular/common/http';
 import { HTTP_INTERCEPTORS }  from '@angular/common/http';
 import { TokenInterceptor }   from './services/auth-token.interceptor';
 import { ErrorInterceptor }   from './services/auth-error.interceptor';
 
-//Style + Material Component
-import "@angular/material/prebuilt-themes/indigo-pink.css";
-import '../assets/css/styles.css';
+
+// + Material Component
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { 
   // MdTabsModule,

@@ -57,8 +57,10 @@ module.exports = {
 
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
+    }),    
+    new HtmlWebpackPlugin({   
+      favicon: 'src/assets/images/favicon.ico'
     }),
-
     new HtmlWebpackPlugin({
       template: 'src/index.html'
     })

@@ -15,7 +15,7 @@ export class RadarChartComponent  {
   radarChartLabels:string[] = [
     'Præstationsangst', " ",
     'Økonomi', " ",
-    'Ensomhed/social angst', " ", 
+    'Social', " ", 
     'Sunde fællesskaber', " ", 
     'Rusmidler', " ",
     'Rygning/snus', " ",
