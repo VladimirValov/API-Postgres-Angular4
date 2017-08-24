@@ -10,11 +10,11 @@ module.exports = function (req, res, next) {
     authorization = (authorization) ? authorization.match(/Bearer (.*\..*\..*)/) : "";
 
     const token = ( Array.isArray(authorization) ) ? authorization[1] : ""
-    console.log(token);
+    // console.log(token);
 
 
     jwt.verify(token, jwtSecretKey, (err, decoded) => {
-        console.log(decoded);
+        // console.log(decoded);
         if(err) return res.status(401).send("Unknown Token");
         next();
     })

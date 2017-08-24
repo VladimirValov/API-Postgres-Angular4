@@ -24,7 +24,7 @@ router.post('/', function(req, res, next) {
 
         const token = jwtService.sign(user.dataValues);        
 
-        console.log(token);
+        // console.log(token);
 
         res.send({
             isAdmin: user.isAdmin,

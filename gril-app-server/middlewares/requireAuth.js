@@ -6,11 +6,11 @@ module.exports = function (req, res, next) {
 
       let token = req.headers.authorization;
 
-    console.log(token);
+    // console.log(token);
 
 
     jwt.verify(token, jwtSecretKey, (err, decoded) => {
-        console.log(decoded);
+        // console.log(decoded);
 
         if(err) return res.status(401).send("Unknown Token");
         
