@@ -1,11 +1,8 @@
 import { Injectable }                       from '@angular/core';
-// import { RequestOptions, Headers, Http }    from '@angular/http';
 import { HttpClient, HttpParams }           from '@angular/common/http'
 import { AuthService }                      from './auth.service'
 import { Schedule }                         from '../data-class/schedule';
 
-// import {Observable}                         from 'rxjs/Observable';
-// import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
@@ -30,7 +27,6 @@ export class ControlDbService {
         }
 
         const params = new HttpParams().set('date', rule.date.toString())
-
 
         return (rule.access)    ? this.httpClient.delete(this.controlUrl, {params}  ).toPromise().then(() => newRule)
                                 : this.httpClient.post(this.controlUrl, newRule).toPromise();

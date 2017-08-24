@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { User } from '../data-class/user';
-
 import 'rxjs/add/operator/toPromise';
 
 import { Router } from '@angular/router'
@@ -51,7 +50,6 @@ export class AuthService {
             return false
         });
     }
-
 
 
     logout() :void {

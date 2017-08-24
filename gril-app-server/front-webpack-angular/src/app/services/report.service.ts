@@ -1,17 +1,13 @@
 import { Injectable }       from '@angular/core';
-// import { Headers, Http }    from '@angular/http';
-// import { HttpClient, HttpParams }           from '@angular/common/http'
-
-import { HttpClient, HttpHeaders, HttpParams }  from '@angular/common/http'
-
-import { Answer } from '../data-class/answer';
+import { HttpClient, HttpHeaders, HttpParams }  from '@angular/common/http';
 
 import 'rxjs/add/operator/toPromise';
+
+import { Answer } from '../data-class/answer';
 
 @Injectable()
 export class ReportService {
     private reportUrl = '/reports'; 
-    // private reportAnswers = 'http://localhost:5000/answers'; 
 
     constructor(private httpClient: HttpClient) { }
 
@@ -22,7 +18,6 @@ export class ReportService {
         const params = new HttpParams()
             .set('from', from.toString())
             .set('to', to.toString())
-            // console.log("params",params)
 
         return this.httpClient.get(this.reportUrl + '/summary', {params} ).toPromise();
     }
