@@ -1,0 +1,82 @@
+
+<div class="detail-report">
+    <div *ngIf="answers" class="list-answers">
+        <table>
+             <tr>
+                <th>№</th>  
+                <th colspan="2">Præstation</th>
+                <th>Økonomi</th>
+                <th colspan="2">Ensomhed</th>                
+                <th colspan="2">Fællesskaber</th>
+                <th colspan="2">Rusmidler</th>
+                <th colspan="2">Rygning/snus</th>
+                <th colspan="2">Sex</th>
+            <tr>
+                <td></td>   
+                <td>1</td>
+                <td>2</td>
+                <td>3</td>
+                <td>4</td>
+                <td>5</td>
+                <td>6</td>
+                <td>7</td>
+                <td>8</td>
+                <td>9</td>
+                <td>10</td>
+                <td>11</td>
+                <td>12</td>
+                <td>13</td>        
+            </tr>
+            <tr *ngFor="let answer of answers.slice(begin, end); let i = index" (click)="showSelected(answer)"  [className]="(answer == answerSelected) ? 'selected' : ''" >
+                <td>{{i + begin + 1}}  </td>  
+
+                <td>{{answer.feel}}</td>     
+                <td>{{answer.relation}}</td>   
+                
+                <td>{{answer.economy}}</td> 
+
+                <td>{{answer.society}}</td>   
+                <td>{{answer.lonely}}</td>  
+         
+                <td>{{answer.community}}</td>
+                <td>{{answer.contribute}}</td>    
+
+                <td>{{answer.drink}}</td>     
+                <td>{{answer.hash}}</td>  
+
+                <td>{{answer.smoke}}</td>
+                <td>{{answer.snus}}</td>
+
+                <td>{{answer.sex}}</td>     
+                <td>{{answer.deny}}</td>       
+            </tr>
+            <tr class="paginator"> 
+                <td colspan="14"> 
+                    <div *ngIf="answers" >
+                    <md-paginator [length]="answers.length"
+                        [pageSize]="pageSize"
+                        [pageSizeOptions]="pageSizeOptions"
+                        (page)="OnPaginator($event)">
+                    </md-paginator>                  
+                    </div>
+                </td>
+            </tr>
+        </table>
+       
+    </div>
+
+    <div *ngIf="answerSelected" class="chart-answer"> 
+
+
+         <button md-raised-button (click)="hideSelected()">Hide</button>  
+         
+       
+         <!-- Radar Chart Component -->
+        <radar-chart [radarChartData]="radarChartData" >Radar Chart</radar-chart>       
+        <!-- {{answerSelected.id}}  -->
+       <!-- Summary Information Component -->
+        <summary-report class="summary-detail" [data]="answerSelected" [summary]="summarySelected">Summary report data</summary-report>
+      
+       <!-- <button md-raised-button (click)="hideSelected()">Hide</button>   -->
+    </div>
+</div>
