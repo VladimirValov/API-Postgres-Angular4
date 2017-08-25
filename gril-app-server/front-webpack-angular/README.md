@@ -1,13 +1,14 @@
-cd front-webpack-angular2
-npm install
 
-# Develop watch
+
+````
+cd front-webpack-angular
+````
+
+## Develop watch
 ````
 npm run build:watch
 ````
-
-
-# Production
+## Production
 ````
 npm run build
 ````
