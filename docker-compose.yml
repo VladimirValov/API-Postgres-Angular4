@@ -1,7 +1,7 @@
 version: "2"
 services:
   serv:
-    build: gril-app-server/.
+    build: app-server/.
     ports:
       - "5000:5000"
     depends_on:
