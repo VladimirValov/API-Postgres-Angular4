@@ -1,4 +1,4 @@
-# Gril App
+# App
 
 ## run app using Docker
 
